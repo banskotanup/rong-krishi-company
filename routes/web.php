@@ -16,6 +16,11 @@ route::get('/',[LandingPageController::class, 'welcome']);
 // AdminController Routes Goes Here...
 route::get('/admin_dashboard',[AdminController::class, 'index'])->middleware('is_admin');
 route::get('/admin_list',[AdminController::class, 'admin_list'])->middleware('is_admin');
+route::get('/admin_add',[AdminController::class, 'admin_add'])->middleware('is_admin');
+route::post('/admin_add',[AdminController::class, 'insert_admin'])->middleware('is_admin');
+route::get('/admin_edit/{id}',[AdminController::class, 'edit_admin'])->middleware('is_admin');
+route::post('/admin_edit/{id}',[AdminController::class, 'update_edit_admin'])->middleware('is_admin');
+route::get('/admin_delete/{id}',[AdminController::class, 'delete_admin'])->middleware('is_admin');
 
 
 
