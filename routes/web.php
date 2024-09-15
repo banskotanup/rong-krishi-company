@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -31,5 +32,15 @@ route::get('/log_out',[AuthController::class, 'log_out']);
 
 
 
-//User&HomeController Routes Goes Here.....
+//MemberController Routes Goes Here....
+route::get('/member_list',[MemberController::class, 'member_list'])->middleware('is_admin');
+route::get('/member_add',[MemberController::class, 'member_add'])->middleware('is_admin');
+route::post('/member_add',[MemberController::class, 'insert_member'])->middleware('is_admin');
+route::get('/member_edit/{id}',[MemberController::class, 'edit_member'])->middleware('is_admin');
+route::post('/member_edit/{id}',[MemberController::class, 'update_edit_member'])->middleware('is_admin');
+route::get('/member_delete/{id}',[MemberController::class, 'delete_member'])->middleware('is_admin');
+
+
+
+//HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);

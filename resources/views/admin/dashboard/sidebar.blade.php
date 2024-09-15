@@ -41,6 +41,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('member_list')}}" class="nav-link {{ Request::is('member_list') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Member
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{url('admin_list')}}" class="nav-link {{ Request::is('admin_list') ? 'active' : ''}}">
               <i class="nav-icon fab fa-product-hunt"></i>
               <p>

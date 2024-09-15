@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
-  <link rel="shortcut icon" href="logo.png">
+  <link rel="shortcut icon" href="/logo.png">
 </head>
 <!--
 `body` tag options:
