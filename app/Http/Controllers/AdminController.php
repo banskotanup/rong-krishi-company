@@ -26,11 +26,14 @@ class AdminController extends Controller
     }
 
     public function insert_admin(Request $request){
+        request()->validate([
+            'email' => 'required|email|unique:users'
+        ]);
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->status = $request->status;
+        $user->status = 0;
         $user->is_admin = 1;
         $user->save();
         return redirect('/admin_list')->with('success',"Admin created  successfully!!!");
@@ -43,6 +46,9 @@ class AdminController extends Controller
     }
 
     public function update_edit_admin($id, Request $request){
+        request()->validate([
+            'email' => 'required|email|unique:users,email,'.$id
+        ]);
         $user = User::getSingle($id);
         $user->name = $request->name;
         $user->email = $request->email;
