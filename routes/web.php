@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -39,6 +40,22 @@ route::post('/member_add',[MemberController::class, 'insert_member'])->middlewar
 route::get('/member_edit/{id}',[MemberController::class, 'edit_member'])->middleware('is_admin');
 route::post('/member_edit/{id}',[MemberController::class, 'update_edit_member'])->middleware('is_admin');
 route::get('/member_delete/{id}',[MemberController::class, 'delete_member'])->middleware('is_admin');
+
+
+
+
+
+
+//CategoryController Routes Goes Here....
+route::get('/category_list',[CategoryController::class, 'category_list'])->middleware('is_admin');
+route::get('/category_add',[CategoryController::class, 'category_add'])->middleware('is_admin');
+route::post('/category_add',[CategoryController::class, 'insert_category'])->middleware('is_admin');
+route::get('/category_edit/{id}',[CategoryController::class, 'edit_category'])->middleware('is_admin');
+route::post('/category_edit/{id}',[CategoryController::class, 'update_edit_category'])->middleware('is_admin');
+route::get('/category_delete/{id}',[CategoryController::class, 'delete_category'])->middleware('is_admin');
+
+
+
 
 
 

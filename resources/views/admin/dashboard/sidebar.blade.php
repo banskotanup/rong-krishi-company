@@ -49,6 +49,22 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{url('category_list')}}" class="nav-link {{ Request::is('category_list') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url('member_list')}}" class="nav-link {{ Request::is('member_list') ? 'active' : ''}}">
+              <i class="nav-icon fas fa-layer-group"></i>
+              <p>
+                Sub-Category
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{url('admin_list')}}" class="nav-link {{ Request::is('admin_list') ? 'active' : ''}}">
               <i class="nav-icon fab fa-product-hunt"></i>
               <p>

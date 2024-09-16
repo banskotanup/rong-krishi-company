@@ -27,7 +27,7 @@ class AuthController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 1, 'status' => 0, 'is_delete' => 0], $remember)){
             return redirect('/admin_dashboard');
         }
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 0], $remember)){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_admin' => 0, 'status' => 0, 'is_delete' => 0], $remember)){
             return redirect('/home');
         }
         else{
