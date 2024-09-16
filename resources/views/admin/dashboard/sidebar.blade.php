@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin_list')}}" class="nav-link {{ Request::is('admin_list') ? 'active' : ''}}">
+            <a href="{{url('product_list')}}" class="nav-link {{ Request::is('product_list') ? 'active' : ''}}">
               <i class="nav-icon fab fa-product-hunt"></i>
               <p>
                 Product

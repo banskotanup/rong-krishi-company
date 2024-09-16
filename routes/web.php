@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -51,6 +52,13 @@ route::post('/sub_category_add',[SubCategoryController::class, 'insert_sub_categ
 route::get('/sub_category_edit/{id}',[SubCategoryController::class, 'edit_sub_category'])->middleware('is_admin');
 route::post('/sub_category_edit/{id}',[SubCategoryController::class, 'update_edit_sub_category'])->middleware('is_admin');
 route::get('/sub_category_delete/{id}',[SubCategoryController::class, 'delete_sub_category'])->middleware('is_admin');
+
+//ProductController Routes Goes Here....
+route::get('/product_list',[ProductController::class, 'product_list'])->middleware('is_admin');
+route::get('/product_add',[ProductController::class, 'product_add'])->middleware('is_admin');
+route::post('/product_add',[ProductController::class, 'insert_product'])->middleware('is_admin');
+route::get('/product_edit/{id}',[ProductController::class, 'edit_product'])->middleware('is_admin');
+route::post('/product_edit/{id}',[ProductController::class, 'update_edit_product'])->middleware('is_admin');
 
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
