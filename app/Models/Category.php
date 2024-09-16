@@ -16,7 +16,7 @@ class Category extends Model
         ->join('users', 'users.id', '=', 'category.created_by')
         ->where('category.is_delete','=', 0)
         ->orderBy('category.id', 'asc')
-        ->get();
+        ->paginate(8);
     }
 
     static public function getSingle($id){

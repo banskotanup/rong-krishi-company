@@ -50,7 +50,7 @@ class User extends Authenticatable
         ->where('is_admin','=', 1)
         ->where('is_delete','=', 0)
         ->orderBy('id', 'desc')
-        ->get();
+        ->paginate(8);
     }
 
     static public function getSingle($id){
@@ -62,6 +62,6 @@ class User extends Authenticatable
         ->where('is_admin','=', 0)
         ->where('is_delete','=', 0)
         ->orderBy('id', 'desc')
-        ->get();
+        ->paginate(8);
     }
 }

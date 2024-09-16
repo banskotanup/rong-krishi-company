@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Edit Category</h1>
+                <h1 class="m-0">Add New Sub Category</h1>
             </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -28,44 +28,54 @@
           <form action="" method="post">
             @csrf
             <div class="card-body">
+                <div class="form-group">
+                    <label>Category Name <span style="color: red;">*</span></label>
+                    <select class="form-control" name="category_id">
+                        <option value="">Select</option>
+                        @foreach($getCategory as $value)
+                            <option value="{{$value->id}}">{{$value->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
               <div class="form-group">
-                <label>Category Name</label>
-                <input type="text" class="form-control" value="{{old('name', $getRecords->name)}}" name="name" required placeholder="Enter category name">
+                <label>Sub Category Name <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" value="{{old('name')}}" name="name" required placeholder="Enter sub category name">
               </div>
 
               <div class="form-group">
-                <label>Slug </label>
-                <input type="text" class="form-control" value="{{old('slug', $getRecords->slug)}}" name="slug" required placeholder="Enter slug Ex. URL">
+                <label>Slug <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" value="{{old('slug')}}" name="slug" required placeholder="Enter slug Ex. URL">
               </div>
               <div style="color: red;">{{$errors->first('slug')}}</div>
 
               <div class="form-group">
-                <label>Status</label>
+                <label>Status <span style="color: red;">*</span></label>
                 <select class="form-control" name="status">
-                    <option {{($getRecords->status == 0) ? 'selected' : ''}} value="0">Active</option>
-                    <option {{($getRecords->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
+                    <option value="{{(old('status') == 0) ? 'selected' : ''}}" value="0">Active</option>
+                    <option value="{{(old('status') == 1) ? 'selected' : ''}}" value="1">Inactive</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label>Meta Title</label>
-                <input type="text" class="form-control" value="{{old('meta_title', $getRecords->meta_title)}}" name="meta_title" required placeholder="Meta title">
+                <label>Meta Title <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" value="{{old('meta_title')}}" name="meta_title" required placeholder="Meta title">
               </div>
 
               <div class="form-group">
                 <label>Meta Description</label>
-                <textarea class="form-control" name="meta_description" placeholder="Meta description">{{old('meta_description', $getRecords->meta_description)}}</textarea>
+                <textarea class="form-control" name="meta_description" placeholder="Meta description">{{old('meta_description')}}</textarea>
               </div>
 
               <div class="form-group">
                 <label>Meta Keywords</label>
-                <input type="text" class="form-control" value="{{old('meta_keywords', $getRecords->meta_keywords)}}" name="meta_keywords" placeholder="Meta keywords">
+                <input type="text" class="form-control" value="{{old('meta_keywords')}}" name="meta_keywords" placeholder="Meta keywords">
               </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Update</button>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>

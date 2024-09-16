@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0">Edit Category</h1>
+                <h1 class="m-0">Edit Sub Category</h1>
             </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -28,8 +28,18 @@
           <form action="" method="post">
             @csrf
             <div class="card-body">
+                <div class="form-group">
+                    <label>Category Name</label>
+                    <select class="form-control" name="category_id">
+                        <option value="">Select</option>
+                        @foreach($getCategory as $value)
+                            <option {{($value-> id == $getRecords->category_id) ? 'selected' : ''}} value="{{$value->id}}">{{$value->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
               <div class="form-group">
-                <label>Category Name</label>
+                <label>Sub Category Name</label>
                 <input type="text" class="form-control" value="{{old('name', $getRecords->name)}}" name="name" required placeholder="Enter category name">
               </div>
 
@@ -42,8 +52,8 @@
               <div class="form-group">
                 <label>Status</label>
                 <select class="form-control" name="status">
-                    <option {{($getRecords->status == 0) ? 'selected' : ''}} value="0">Active</option>
-                    <option {{($getRecords->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
+                    <option {{(old('status') == 0) ? 'selected' : ''}} value="0">Active</option>
+                    <option {{(old('status') == 1) ? 'selected' : ''}} value="1">Inactive</option>
                 </select>
               </div>
 

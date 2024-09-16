@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
     public function edit_category($id){
         $data['getRecords'] = Category::getSingle($id);
-        $data['header_title'] = 'category-Edit';
+        $data['header_title'] = 'Category-Edit';
         return view('admin.category_pages.category_edit', $data);
     }
 
@@ -51,7 +51,7 @@ class CategoryController extends Controller
         $category = Category::getSingle($id);
         $category->name = trim($request->name);
         $category->slug = trim($request->slug);
-        $category->status = 0;
+        $category->status = trim($request->status);
         $category->meta_title = trim($request->meta_title);
         $category->meta_description = trim($request->meta_description);
         $category->meta_keywords = trim($request->meta_keywords);

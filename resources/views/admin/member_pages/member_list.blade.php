@@ -47,7 +47,14 @@
                   <td>{{$value->id}}</td>
                   <td >{{$value->name}}</td>
                   <td >{{$value->email}}</td>
-                  <td>{{($value->status == 0) ? 'Active' : 'Inactive'}}</td>
+                  <td>
+                    @if ($value->status == 0)
+                      <span style="color: rgb(8, 165, 8)">Active</span>    
+                    @endif
+                    @if ($value->status == 1)
+                      <span style="color: #D0342C">Inactive</span>    
+                    @endif
+                  </td>
                   <td style="text-align: center;">
                     <a href="{{url('/member_edit/'.$value->id)}}" class="btn btn-primary" style="width: 100px;">Edit</a>
                     <a href="{{url('/member_delete/'.$value->id)}}" class="btn btn-danger" style="width: 100px;">Delete</a>
@@ -56,6 +63,9 @@
                 @endforeach
               </tbody>
             </table>
+            <div style="padding: 10px; float: right;">
+              {!! $getRecords->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
+            </div>
           </div>
           <!-- /.card-body -->
         </div>

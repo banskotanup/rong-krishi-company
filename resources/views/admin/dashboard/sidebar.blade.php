@@ -57,7 +57,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{url('member_list')}}" class="nav-link {{ Request::is('member_list') ? 'active' : ''}}">
+            <a href="{{url('sub_category_list')}}" class="nav-link {{ Request::is('sub_category_list') ? 'active' : ''}}">
               <i class="nav-icon fas fa-layer-group"></i>
               <p>
                 Sub-Category
