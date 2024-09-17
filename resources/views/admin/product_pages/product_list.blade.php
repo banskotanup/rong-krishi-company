@@ -27,6 +27,9 @@
                     <tr>
                         <th>#</th>
                         <th>Title</th>
+                        <th>Category Name</th>
+                        <th>Sub Category Name</th>
+                        <th>Price</th>
                         <th>Created By</th>
                         <th>Created Date</th>
                         <th>Status</th>
@@ -38,6 +41,9 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$value->title}}</td>
+                        <td>{{$value->category_name}}</td>
+                        <td>{{$value->sub_category_name}}</td>
+                        <td>{{$value->price}}</td>
                         <td>{{$value->created_by_name}}</td>
                         <td>{{date('d-m-y', strtotime($value->created_at))}}</td>
                         <td>

@@ -20,7 +20,9 @@ class Product extends Model
     }
 
     static public function getProduct(){
-        return self::select('product.*', 'users.name as created_by_name')
+        return self::select('product.*', 'users.name as created_by_name', 'category.name as category_name', 'sub_category.name as sub_category_name')
+        ->join('category', 'category.id', '=', 'product.category_id')
+        ->join('sub_category', 'sub_category.id', '=', 'product.sub_category_id')
         ->orderBy('product.id', 'asc')
         ->join('users', 'users.id', '=', 'product.created_by')
         ->where('product.is_deleted', '=', 0)
