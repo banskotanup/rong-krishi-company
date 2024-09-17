@@ -14,9 +14,9 @@ use Str;
 class ProductController extends Controller
 {
     public function product_list(){
-        // $data['getRecords'] = SubCategory::getSubCategory();
+        $data['getRecords'] = Product::getProduct();
         $data['header_title'] = 'Product';
-        return view('admin.product_pages.product_list', $data);
+        return view('admin.product_pages.product_list', $data)->with('no', 1);
     }
 
     public function product_add(){

@@ -13,7 +13,7 @@ class MemberController extends Controller
     public function member_list(){
         $data['getRecords'] = User::getMember();
         $data['header_title'] = 'Member';
-        return view('admin.member_pages.member_list', $data);
+        return view('admin.member_pages.member_list', $data)->with('no', 1);
     }
 
     public function member_add(){

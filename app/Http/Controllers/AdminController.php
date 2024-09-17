@@ -11,13 +11,13 @@ class AdminController extends Controller
 {
     public function index(){
         $data['header_title'] = "Dashboard";
-        return view('admin.dashboard.index', $data);
+        return view('admin.layouts.dashboard', $data);
     }
 
     public function admin_list(){
         $data['getRecords'] = User::getAdmin();
         $data['header_title'] = 'Admin';
-        return view('admin.admin_pages.admin_list', $data);
+        return view('admin.admin_pages.admin_list', $data)->with('no', 1);
     }
 
     public function admin_add(){

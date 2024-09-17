@@ -9,5 +9,6 @@
     @include('admin.dashboard.content_wrapper')
     @include('admin.dashboard.main_content')
     @include('admin.dashboard.footer')
+</div>
 </body>
 </html>

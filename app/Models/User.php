@@ -49,7 +49,7 @@ class User extends Authenticatable
         return User::select('users.*')
         ->where('is_admin','=', 1)
         ->where('is_delete','=', 0)
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         ->paginate(8);
     }
 
@@ -61,7 +61,7 @@ class User extends Authenticatable
         return User::select('users.*')
         ->where('is_admin','=', 0)
         ->where('is_delete','=', 0)
-        ->orderBy('id', 'desc')
+        ->orderBy('id', 'asc')
         ->paginate(8);
     }
 }

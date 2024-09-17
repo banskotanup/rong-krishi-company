@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function category_list(){
         $data['getRecords'] = Category::getCategory();
         $data['header_title'] = 'Category';
-        return view('admin.category_pages.category_list', $data);
+        return view('admin.category_pages.category_list', $data)->with('no', 1);
     }
 
     public function category_add(){

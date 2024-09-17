@@ -15,7 +15,7 @@ class SubCategoryController extends Controller
     public function sub_category_list(){
         $data['getRecords'] = SubCategory::getSubCategory();
         $data['header_title'] = 'SubCategory';
-        return view('admin.sub_category_pages.sub_category_list', $data);
+        return view('admin.sub_category_pages.sub_category_list', $data)->with('no', 1);
     }
 
     public function sub_category_add(){

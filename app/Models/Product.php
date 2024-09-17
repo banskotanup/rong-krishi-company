@@ -18,4 +18,12 @@ class Product extends Model
     static public function getSingle($id){
         return self::find($id);
     }
+
+    static public function getProduct(){
+        return self::select('product.*', 'users.name as created_by_name')
+        ->orderBy('product.id', 'asc')
+        ->join('users', 'users.id', '=', 'product.created_by')
+        ->where('product.is_deleted', '=', 0)
+        ->paginate(8);
+    }
 }
