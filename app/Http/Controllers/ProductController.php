@@ -70,6 +70,24 @@ class ProductController extends Controller
             $product->shipping_returns = trim($request->shipping_returns);
             $product->status = trim($request->status);
             $product->save();
+
+            if(!empty($request->file('image'))){
+                foreach($request->file('image') as $value){
+                    if($value){
+                        $ext = $value->getClientOriginalExtension();
+                        $randomStr = $product->id.Str::random(20);
+                        $filename = strtolower($randomStr).'.'.$ext;
+                        $value->move('upload/product/', $filename);
+
+                        $imageupload  = new ProductImageModel;
+                        $imageupload->image_name = $filename; 
+                        $imageupload->image_extension = $ext; 
+                        $imageupload->product_id = $product->id;
+                        $imageupload->save(); 
+                    }
+                }
+            }
+
             return redirect('/product_list')->with('success',"Product added successfully!!!");
         }
         else{
@@ -134,5 +152,19 @@ class ProductController extends Controller
         }
         $image->delete();
         return redirect()->back()->with('success',"Product image deleted successfully!!!");
+    }
+
+    public function product_image_sortable(Request $request){
+        if(!empty($request->photo_id)){
+            $i = 1;
+            foreach($request->photo_id as $photo_id){
+                $image = ProductImageModel::getSingle($photo_id); 
+                $image->order_by = $i;
+                $image->save();
+                $i++;   
+            }
+        }
+        $json['success'] = true;
+        echo json_encode($json);
     }
 }

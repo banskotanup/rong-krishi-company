@@ -95,10 +95,10 @@
                     </div>
 
                     @if(!empty($product->getImage->count()))
-                    <div class="row">
+                    <div class="row" id="sortable">
                         @foreach($product->getImage as $image)
                             @if(!empty($image->getImage()))
-                                <div class="col-md-1" style="text-align: center;">
+                                <div class="col-md-1 sortable_image" id="{{$image->id}}" style="text-align: center;">
                                     <img style="height: 100px; width:100%;" src="{{$image->getImage()}}" alt="">
                                     <a onclick="confirmation(event)" href="{{url('/image_delete/'.$image->id)}}" class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
                                 </div>
@@ -175,6 +175,7 @@
 @section('script')
 
 
+<script src="/admin/sortable/jquery-ui.js"></script>
 <script src="/admin/plugins/summernote/summernote-bs4.min.js"></script>
 
 <script type="text/javascript">
@@ -216,6 +217,32 @@
             codemirror: { // codemirror options
                 theme: 'monokai'
             }
+        });
+
+        $( function() {
+            $( "#sortable" ).sortable({
+                update : function(event, ui){
+                    var photo_id = new Array();
+                    $('.sortable_image').each(function(){
+                        var id = $(this).attr('id');
+                        photo_id.push(id);
+                    });
+                    $.ajax({
+                        type : "POST",
+                        url : "{{url('/product_image_sortable')}}",
+                        data : {
+                            "photo_id" : photo_id,
+                            "_token": "{{csrf_token()}}"
+                        },
+                        dataType : "json",
+                        success: function(data){
+                            
+                        },
+                        error : function(data){
+                        }
+                    });
+                }
+            });
         });
 </script>
 @endsection

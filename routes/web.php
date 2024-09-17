@@ -67,6 +67,7 @@ route::post('/product_edit/{id}',[ProductController::class, 'update_edit_product
 
 //ImageController Routes Goes Here.....
 route::get('/image_delete/{id}',[ProductController::class, 'image_delete'])->middleware('is_admin');
+route::post('/product_image_sortable',[ProductController::class, 'product_image_sortable'])->middleware('is_admin');
 
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
