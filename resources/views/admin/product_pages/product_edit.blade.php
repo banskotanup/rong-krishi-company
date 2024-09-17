@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 @section('style')
+<link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -81,7 +82,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Short Description<span style="color: red;">*</span></label>
-                                <textarea name="short_description" class="form-control"
+                                <textarea name="short_description" class="form-control shortDescription"
                                     placeholder="Enter Short Description"></textarea>
                             </div>
                         </div>
@@ -91,7 +92,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description<span style="color: red;">*</span></label>
-                                <textarea name="description" class="form-control"
+                                <textarea name="description" class="form-control editor"
                                     placeholder="Enter Description"></textarea>
                             </div>
                         </div>
@@ -101,7 +102,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Additional Information<span style="color: red;">*</span></label>
-                                <textarea name="additional_information" class="form-control"
+                                <textarea name="additional_information" class="form-control editor"
                                     placeholder="Additional Information"></textarea>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Shipping Returns<span style="color: red;">*</span></label>
-                                <textarea name="shipping_returns" class="form-control"
+                                <textarea name="shipping_returns" class="form-control editor"
                                     placeholder="Shipping Returns"></textarea>
                             </div>
                         </div>
@@ -143,8 +144,12 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        $('body').delegate('#getCategory','change',function(e){
+
+
+<script src="/admin/plugins/summernote/summernote-bs4.min.js"></script>
+
+<script type="text/javascript">
+    $('body').delegate('#getCategory','change',function(e){
             var id = $(this).val();
             $.ajax({
                 type : "POST",
@@ -161,5 +166,27 @@
                 }
             });
         });
-    </script>
+
+        $(function () {
+            $('.editor').summernote()
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+            });
+        });
+
+        $('.editor').summernote({
+            height: 150,   //set editable area's height
+            codemirror: { // codemirror options
+                theme: 'monokai'
+            }
+        });
+
+        $('.shortDescription').summernote({
+            height: 50,   //set editable area's height
+            codemirror: { // codemirror options
+                theme: 'monokai'
+            }
+        });
+</script>
 @endsection
