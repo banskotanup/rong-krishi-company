@@ -58,10 +58,10 @@
                             @endif
                         </td>
                         <td style="text-align: center;">
-                            <a href="{{url('/sub_category_edit/'.$value->id)}}" class="btn btn-primary"
-                                style="width: 100px;">Edit</a>
-                            <a onclick="confirmation(event)" href="{{url('/sub_category_delete/'.$value->id)}}" class="btn btn-danger"
-                                style="width: 100px;">Delete</a>
+                            <a href="{{url('/sub_category_edit/'.$value->id)}}" class="btn btn-primary btn_edit"
+                                style="width: 50px;"><i class="fas fa-edit"></i></a>
+                            <a onclick="confirmation(event)" href="{{url('/sub_category_delete/'.$value->id)}}" class="btn btn-danger btn_delete"
+                                style="width: 50px;"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach

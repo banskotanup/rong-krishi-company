@@ -16,6 +16,26 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
     <link rel="shortcut icon" href="/logo.png">
+    <style>
+      .hide {
+        display: none;
+      }
+    
+      .btn_edit:hover+.hide {
+        display: block;
+        color: grey;
+      }
+    
+      .btn_edit:hover {
+        color: blue;
+        background-color: white;
+      }
+    
+      .btn_delete:hover {
+        color: red;
+        background-color: white;
+      }
+    </style>
     @yield('style')
   </head>
   <!--
