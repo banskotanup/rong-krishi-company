@@ -59,8 +59,14 @@ route::post('/get_sub_category',[SubCategoryController::class, 'get_sub_category
 route::get('/product_list',[ProductController::class, 'product_list'])->middleware('is_admin');
 route::get('/product_add',[ProductController::class, 'product_add'])->middleware('is_admin');
 route::post('/product_add',[ProductController::class, 'insert_product'])->middleware('is_admin');
+route::get('/product_add/{id}',[ProductController::class, 'add_product'])->middleware('is_admin');
+route::post('/product_add/{id}',[ProductController::class, 'update_add_product'])->middleware('is_admin');
 route::get('/product_edit/{id}',[ProductController::class, 'edit_product'])->middleware('is_admin');
 route::post('/product_edit/{id}',[ProductController::class, 'update_edit_product'])->middleware('is_admin');
+
+
+//ImageController Routes Goes Here.....
+route::get('/image_delete/{id}',[ProductController::class, 'image_delete'])->middleware('is_admin');
 
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);

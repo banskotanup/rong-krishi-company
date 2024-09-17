@@ -33,4 +33,13 @@ class SubCategory extends Model
         ->orderBy('sub_category.name', 'asc')
         ->get();
     }
+
+    static public function getSubCategoryActive(){
+        return self::select('sub_category.*')
+        ->join('users', 'users.id', '=', 'sub_category.created_by')
+        ->where('sub_category.is_delete','=', 0)
+        ->where('sub_category.status','=', 0)
+        ->orderBy('sub_category.name', 'asc')
+        ->get();
+    }
 }

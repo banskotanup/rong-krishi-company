@@ -14,26 +14,25 @@
             </div>
         </div>
     </div>
-    @include('admin.auth.message')
     <div class="col-md-12">
         <div class="card card-primary">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Title<span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" value="{{old('title', $product->title)}}"
-                                    name="title" placeholder="Enter Product Title">
+                                    name="title" required placeholder="Enter Product Title">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>SKU</label>
+                                <label>SKU<span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" value="{{old('sku', $product->sku)}}" name="sku"
-                                    placeholder="Enter SKU">
+                                    required placeholder="Enter SKU">
                             </div>
                         </div>
 
@@ -43,8 +42,7 @@
                                 <select class="form-control" name="category_id" id="getCategory" required>
                                     <option value="">Select</option>
                                     @foreach ($getCategory as $category)
-                                    <option {{($category-> id == $product->category_id) ? 'selected' : ''}}
-                                        value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -55,10 +53,6 @@
                                 <label>Sub Category<span style="color: red;">*</span></label>
                                 <select class="form-control" name="sub_category_id" id="getSubCategory" required>
                                     <option value="">Select</option>
-                                    @foreach ($getSubCategory as $sub_category)
-                                    <option {{($sub_category-> id == $product->sub_category_id) ? 'selected' : ''}}
-                                        value="{{$sub_category->id}}">{{$sub_category->name}}</option>
-                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -67,9 +61,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Price (NPR)</label>
+                                <label>Price (NPR) <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" value="{{old('price', $product->price)}}"
-                                    name="price" placeholder="Enter Price">
+                                    name="price" required placeholder="Enter Price">
                             </div>
                         </div>
 
@@ -87,33 +81,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Image</label>
-                                <input type="file" name="image[]" multiple="multiple" class="form-control"
-                                    style="padding: 5px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    @if(!empty($product->getImage->count()))
-                    <div class="row">
-                        @foreach($product->getImage as $image)
-                            @if(!empty($image->getImage()))
-                                <div class="col-md-1" style="text-align: center;">
-                                    <img style="height: 100px; width:100%;" src="{{$image->getImage()}}" alt="">
-                                    <a onclick="return confirm('Are you sure, you want to delete?');" href="{{url('/image_delete/'.$image->id)}}" class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                    @endif
-                    <hr />
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Short Description</label>
-                                <textarea name="short_description" class="form-control shortDescription"
-                                    placeholder="Enter Short Description">{{$product->short_description}}</textarea>
+                                <label>Short Description<span style="color: red;">*</span></label>
+                                <textarea name="short_description" class="form-control shortDescription" required
+                                    placeholder="Enter Short Description"></textarea>
                             </div>
                         </div>
                     </div>
@@ -121,9 +91,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control editor"
-                                    placeholder="Enter Description">{{$product->description}}</textarea>
+                                <label>Description<span style="color: red;">*</span></label>
+                                <textarea name="description" class="form-control editor" required
+                                    placeholder="Enter Description"></textarea>
                             </div>
                         </div>
                     </div>
@@ -131,9 +101,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Additional Information</label>
-                                <textarea name="additional_information" class="form-control editor"
-                                    placeholder="Additional Information">{{$product->additional_information}}</textarea>
+                                <label>Additional Information<span style="color: red;">*</span></label>
+                                <textarea name="additional_information" class="form-control editor" required
+                                    placeholder="Additional Information"></textarea>
                             </div>
                         </div>
                     </div>
@@ -141,9 +111,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Shipping Returns</label>
-                                <textarea name="shipping_returns" class="form-control editor"
-                                    placeholder="Shipping Returns">{{$product->shipping_returns}}</textarea>
+                                <label>Shipping Returns<span style="color: red;">*</span></label>
+                                <textarea name="shipping_returns" class="form-control editor" required
+                                    placeholder="Shipping Returns"></textarea>
                             </div>
                         </div>
                     </div>
@@ -152,7 +122,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status <span style="color: red;">*</span></label>
                                 <select class="form-control" name="status">
                                     <option {{($product->status == 0) ? 'selected' : ''}} value="0">Active</option>
                                     <option {{($product->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
@@ -162,7 +132,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>

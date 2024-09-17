@@ -77,7 +77,7 @@ class SubCategoryController extends Controller
         $html = '';
         $html .= '<option value="">Select</option>';
         foreach($get_sub_category as $value){
-            $html .= '<option value=".$value->id.">'.$value->name.'</option>';
+            $html .= '<option value="'.$value->id.'">'.$value->name.'</option>';
         }
         $json['html'] = $html;
         echo json_encode($json);

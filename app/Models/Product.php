@@ -16,7 +16,7 @@ class Product extends Model
     }
 
     static public function getSingle($id){
-        return self::find($id);
+        return Product::find($id);
     }
 
     static public function getProduct(){
@@ -25,5 +25,9 @@ class Product extends Model
         ->join('users', 'users.id', '=', 'product.created_by')
         ->where('product.is_deleted', '=', 0)
         ->paginate(8);
+    }
+
+    public function getImage(){
+        return $this->hasMany(ProductImageModel::class, "product_id");
     }
 }

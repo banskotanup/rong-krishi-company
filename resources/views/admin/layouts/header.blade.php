@@ -140,7 +140,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/admin/index3.html" class="brand-link">
-          <span class="brand-text font-weight-light" style="margin:10px;"><strong style="font-weight: 700;">Rongkrishi Admin Panel</strong></span>
+          <span class="brand-text font-weight-light" style="margin:10px;"><strong style="font-weight: 500; color: white;">Rongkrishi Admin Panel</strong></span>
         </a>
     
         <!-- Sidebar -->
