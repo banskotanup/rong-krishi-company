@@ -100,7 +100,7 @@
                             @if(!empty($image->getImage()))
                                 <div class="col-md-1" style="text-align: center;">
                                     <img style="height: 100px; width:100%;" src="{{$image->getImage()}}" alt="">
-                                    <a onclick="return confirm('Are you sure, you want to delete?');" href="{{url('/image_delete/'.$image->id)}}" class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
+                                    <a onclick="confirmation(event)" href="{{url('/image_delete/'.$image->id)}}" class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
                                 </div>
                             @endif
                         @endforeach

@@ -50,7 +50,7 @@
             </td>
             <td style="text-align: center;">
               <a href="{{url('/member_edit/'.$value->id)}}" class="btn btn-primary" style="width: 100px;">Edit</a>
-              <a href="{{url('/member_delete/'.$value->id)}}" class="btn btn-danger" style="width: 100px;">Delete</a>
+              <a onclick="confirmation(event)" href="{{url('/member_delete/'.$value->id)}}" class="btn btn-danger" style="width: 100px;">Delete</a>
             </td>
           </tr>
           @endforeach

@@ -60,7 +60,7 @@
                         <td style="text-align: center;">
                             <a href="{{url('/sub_category_edit/'.$value->id)}}" class="btn btn-primary"
                                 style="width: 100px;">Edit</a>
-                            <a href="{{url('/sub_category_delete/'.$value->id)}}" class="btn btn-danger"
+                            <a onclick="confirmation(event)" href="{{url('/sub_category_delete/'.$value->id)}}" class="btn btn-danger"
                                 style="width: 100px;">Delete</a>
                         </td>
                     </tr>
