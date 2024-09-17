@@ -33,5 +33,4 @@
 @endsection
 
 @section('script')
-<script src="/admin/dist/js/pages/dashboard3.js"></script>
 @endsection

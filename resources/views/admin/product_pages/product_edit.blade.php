@@ -38,8 +38,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Category<span style="color: red;">*</span></label>
-                                <select class="form-control" name="category_id">
+                                <select class="form-control" name="category_id" id="getCategory">
                                     <option value="">Select</option>
+                                    @foreach ($getCategory as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -47,7 +50,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Sub Category<span style="color: red;">*</span></label>
-                                <select class="form-control" name="sub_category_id">
+                                <select class="form-control" name="sub_category_id" id="getSubCategory">
                                     <option value="">Select</option>
                                 </select>
                             </div>
@@ -140,5 +143,23 @@
 @endsection
 
 @section('script')
-<script src="/admin/dist/js/pages/dashboard3.js"></script>
+    <script type="text/javascript">
+        $('body').delegate('#getCategory','change',function(e){
+            var id = $(this).val();
+            $.ajax({
+                type : "POST",
+                url : "{{url('/get_sub_category')}}",
+                data : {
+                    "id" : id,
+                    "_token": "{{csrf_token()}}"
+                },
+                dataType : "json",
+                success: function(data){
+                    $('#getSubCategory').html(data.html);
+                },
+                error : function(data){
+                }
+            });
+        });
+    </script>
 @endsection

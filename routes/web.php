@@ -53,6 +53,8 @@ route::get('/sub_category_edit/{id}',[SubCategoryController::class, 'edit_sub_ca
 route::post('/sub_category_edit/{id}',[SubCategoryController::class, 'update_edit_sub_category'])->middleware('is_admin');
 route::get('/sub_category_delete/{id}',[SubCategoryController::class, 'delete_sub_category'])->middleware('is_admin');
 
+route::post('/get_sub_category',[SubCategoryController::class, 'get_sub_category'])->middleware('is_admin');
+
 //ProductController Routes Goes Here....
 route::get('/product_list',[ProductController::class, 'product_list'])->middleware('is_admin');
 route::get('/product_add',[ProductController::class, 'product_add'])->middleware('is_admin');

@@ -48,6 +48,7 @@ class ProductController extends Controller
     public function edit_product($product_id){
         $product = Product::getSingle($product_id);
         if(!empty($product)){
+            $data['getCategory'] = Category::getCategoryActive();
             $data['product'] = $product;
             $data['header_title'] = 'Product-Edit';
             return view('admin.product_pages.product_edit', $data);
