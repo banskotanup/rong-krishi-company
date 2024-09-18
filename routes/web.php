@@ -2,14 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\LandingPageController;
 use App\Http\Middleware\AdminMiddleware;
 
 //welcome route..... 
