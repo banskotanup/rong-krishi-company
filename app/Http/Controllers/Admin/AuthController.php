@@ -45,4 +45,18 @@ class AuthController extends Controller
  
         return redirect('/');
     }
+
+    public function auth_login(Request $request){
+        $remember = !empty($request->is_remember) ? true : false;
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 0, 'is_delete' => 0], $remember)){
+            $json['status'] = true;
+            $json['message'] = 'success';
+        }
+        else{
+            $json['status'] = false;
+            $html = 'Please enter correct email and password';
+            $json['html'] = $html;
+        }
+        echo json_encode($json);
+    }
 }

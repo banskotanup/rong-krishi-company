@@ -15,6 +15,9 @@ use App\Http\Middleware\AdminMiddleware;
 //welcome route..... 
 route::get('/',[LandingPageController::class, 'welcome']);
 
+//AuthRoutes Goes Here...
+route::post('/auth_login', [AuthController::class, 'auth_login']);
+
 //AuthController Routes Goes Here...
 route::get('/login',[AuthController::class, 'login_admin']);
 route::post('/login',[AuthController::class, 'auth_login_admin']);
