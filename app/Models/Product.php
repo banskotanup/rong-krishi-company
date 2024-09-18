@@ -26,7 +26,7 @@ class Product extends Model
         ->orderBy('product.id', 'asc')
         ->join('users', 'users.id', '=', 'product.created_by')
         ->where('product.is_deleted', '=', 0)
-        ->paginate(8);
+        ->paginate(20);
     }
 
     public function getImage(){

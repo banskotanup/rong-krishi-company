@@ -23,7 +23,7 @@
       <h3 class="card-title">Member List</h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body p-0">
+    <div class="card-body p-0 table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>

@@ -16,7 +16,7 @@ class Category extends Model
         ->join('users', 'users.id', '=', 'category.created_by')
         ->where('category.is_delete','=', 0)
         ->orderBy('category.id', 'asc')
-        ->paginate(8);
+        ->paginate(20);
     }
 
     static public function getCategoryActive(){

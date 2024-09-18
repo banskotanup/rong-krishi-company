@@ -18,8 +18,8 @@
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
-                                            <source media="(max-width: 480px)" srcset="assets/images/slider/slide-1-480w.jpg">
-                                            <img src="assets/images/slider/slide-1.jpg" alt="Image Desc">
+                                            <source media="(max-width: 480px)" srcset="{{url('assets/images/slider/slide-1-480w.jpg')}}">
+                                            <img src="{{url('assets/images/slider/slide-1.jpg')}}" alt="Image Desc">
                                         </picture>
                                     </figure><!-- End .slide-image -->
 
@@ -37,8 +37,8 @@
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
-                                            <source media="(max-width: 480px)" srcset="assets/images/slider/slide-2-480w.jpg">
-                                            <img src="assets/images/slider/slide-2.jpg" alt="Image Desc">
+                                            <source media="(max-width: 480px)" srcset="{{url('assets/images/slider/slide-2-480w.jpg')}}">
+                                            <img src="{{url('assets/images/slider/slide-2.jpg')}}" alt="Image Desc">
                                         </picture>
                                     </figure><!-- End .slide-image -->
 
@@ -56,8 +56,8 @@
                                 <div class="intro-slide">
                                     <figure class="slide-image">
                                         <picture>
-                                            <source media="(max-width: 480px)" srcset="assets/images/slider/slide-3-480w.jpg">
-                                            <img src="assets/images/slider/slide-3.jpg" alt="Image Desc">
+                                            <source media="(max-width: 480px)" srcset="{{url('assets/images/slider/slide-3-480w.jpg')}}">
+                                            <img src="{{url('assets/images/slider/slide-3.jpg')}}" alt="Image Desc">
                                         </picture>
                                     </figure><!-- End .slide-image -->
 
