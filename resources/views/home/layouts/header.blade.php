@@ -60,19 +60,19 @@
                                     <div class="col-md-12">
                                         <div class="menu-col">
                                             <div class="row">
-                                                @for($i=1; $i<=5;$i++)
+                                                @php
+                                                    $getCategoryHeader  = App\Models\Category::getCategoryMenu();
+                                                @endphp
+                                                @foreach($getCategoryHeader as $value_category_header)
                                                 <div class="col-md-4" style="margin-bottom: 20px;">
-                                                    <a href="" class="menu-title">Shop with sidebar</a>
+                                                    <a href="{{url($value_category_header->slug)}}" class="menu-title">{{$value_category_header->name}}</a>
                                                     <ul>
-                                                        <li><a href="category-list.html">Shop List</a></li>
-                                                        <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
-                                                        <li><a href="category.html">Shop Grid 3 Columns</a></li>
-                                                        <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                                                        <li><a href="category-market.html"><span>Shop Market<span
-                                                                        class="tip tip-new">New</span></span></a></li>
+                                                        @foreach($value_category_header->getSubCategory as $value_h_sub_category)
+                                                            <li><a href="{{url($value_category_header->slug.'/'.$value_h_sub_category->slug)}}">{{$value_h_sub_category->name}}</a></li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
-                                                @endfor
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

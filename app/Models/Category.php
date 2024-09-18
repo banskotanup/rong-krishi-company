@@ -28,7 +28,21 @@ class Category extends Model
         ->get();
     }
 
+    static public function getCategoryMenu(){
+        return self::select('category.*')
+        ->join('users', 'users.id', '=', 'category.created_by')
+        ->where('category.is_delete','=', 0)
+        ->where('category.status','=', 0)
+        ->get();
+    }
+
     static public function getSingle($id){
         return Category::find($id);
+    }
+
+    public function getSubCategory(){
+        return $this->hasMany(SubCategory::class, "category_id")
+        ->where('sub_category.status','=', 0)
+        ->where('sub_category.is_delete','=', 0);
     }
 }
