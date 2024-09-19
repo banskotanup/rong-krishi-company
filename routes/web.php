@@ -77,4 +77,4 @@ route::post('/product_image_sortable',[ProductController::class, 'product_image_
 route::get('/home',[HomeController::class, 'index']);
 
 //Home/ProductController Goes Here...
-route::get('{slug?}',[ProductFront::class, 'getCategory']);
+route::get('{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);

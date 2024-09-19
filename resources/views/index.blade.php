@@ -96,7 +96,7 @@
                                 <div class="col-md-6 col-lg-12">
                                     <div class="banner banner-display mb-0">
                                         <a href="#">
-                                            <img src="assets/images/banners/home/intro/banner-2.jpg" alt="Banner">
+                                            <img src="{{url('assets/images/banners/home/intro/banner-2.jpg')}}" alt="Banner">
                                         </a>
 
                                         <div class="banner-content">
@@ -138,27 +138,27 @@
                         }
                     }'>
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/1.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/1.png')}}" alt="Brand Name">
                     </a>
 
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/2.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/2.png')}}" alt="Brand Name">
                     </a>
 
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/3.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/3.png')}}" alt="Brand Name">
                     </a>
 
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/4.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/4.png')}}" alt="Brand Name">
                     </a>
 
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/5.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/5.png')}}" alt="Brand Name">
                     </a>
 
                     <a href="#" class="brand">
-                        <img src="assets/images/brands/6.png" alt="Brand Name">
+                        <img src="{{url('assets/images/brands/6.png')}}" alt="Brand Name">
                     </a>
                 </div><!-- End .owl-carousel -->
             </div><!-- End .container -->
@@ -217,8 +217,8 @@
                         <div class="product product-11 text-center">
                             <figure class="product-media">
                                 <a href="product.html">
-                                    <img src="assets/images/demos/demo-2/products/product-1-1.jpg" alt="Product image" class="product-image">
-                                    <img src="assets/images/demos/demo-2/products/product-1-2.jpg" alt="Product image" class="product-image-hover">
+                                    <img src="{{url('assets/images/demos/demo-2/products/product-1-1.jpg')}}" alt="Product image" class="product-image">
+                                    <img src="{{url('assets/images/demos/demo-2/products/product-1-2.jpg')}}" alt="Product image" class="product-image-hover">
                                 </a>
 
                                 <div class="product-action-vertical">

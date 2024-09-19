@@ -42,4 +42,11 @@ class SubCategory extends Model
         ->orderBy('sub_category.name', 'asc')
         ->get();
     }
+
+    static public function getSingleSlug($slug){
+        return self::where('slug', '=', $slug)
+        ->where('sub_category.status', '=',  0)
+        ->where('sub_category.is_delete', '=',  0)
+        ->first();
+    }
 }
