@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    @include('home.loader.loader')
+
     <div class="page-wrapper">
     @include('home.layouts.header')
     @yield('content')

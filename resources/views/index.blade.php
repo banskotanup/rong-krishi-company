@@ -1,6 +1,6 @@
 @extends('home.layouts.app')
 @section('content')
-
+@include('home.loader.loader')
     <main class="main">
         <div class="intro-section bg-lighter pt-5 pb-6">
             <div class="container">

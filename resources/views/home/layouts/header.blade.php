@@ -68,14 +68,16 @@
                                                     $getCategoryHeader  = App\Models\Category::getCategoryMenu();
                                                 @endphp
                                                 @foreach($getCategoryHeader as $value_category_header)
-                                                <div class="col-md-4" style="margin-bottom: 20px;">
-                                                    <a href="{{url($value_category_header->slug)}}" class="menu-title">{{$value_category_header->name}}</a>
-                                                    <ul>
-                                                        @foreach($value_category_header->getSubCategory as $value_h_sub_category)
-                                                            <li><a href="{{url($value_category_header->slug.'/'.$value_h_sub_category->slug)}}">{{$value_h_sub_category->name}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
+                                                    @if(!empty($value_category_header->getSubCategory->count()))
+                                                        <div class="col-md-4" style="margin-bottom: 20px;">
+                                                            <a href="{{url($value_category_header->slug)}}" class="menu-title">{{$value_category_header->name}}</a>
+                                                            <ul>
+                                                                @foreach($value_category_header->getSubCategory as $value_h_sub_category)
+                                                                    <li><a href="{{url($value_category_header->slug.'/'.$value_h_sub_category->slug)}}">{{$value_h_sub_category->name}}</a></li>
+                                                                @endforeach
+                                                            </ul>
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>
