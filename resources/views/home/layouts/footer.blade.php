@@ -67,7 +67,7 @@
         <div class="container">
             <p class="footer-copyright">Copyright © 2024 NextGenIT. All Rights Reserved.</p>
             <figure class="footer-payments">
-                <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                <img src="{{url('assets/images/payments.png')}}" alt="Payment methods" width="272" height="20">
             </figure>
         </div>
     </div>

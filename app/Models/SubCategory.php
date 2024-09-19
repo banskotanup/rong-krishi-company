@@ -49,4 +49,10 @@ class SubCategory extends Model
         ->where('sub_category.is_delete', '=',  0)
         ->first();
     }
+
+    public function getProduct(){
+        return $this->hasMany(Product::class, "sub_category_id")
+        ->where('product.status','=', 0)
+        ->where('product.is_deleted','=', 0);
+    }
 }

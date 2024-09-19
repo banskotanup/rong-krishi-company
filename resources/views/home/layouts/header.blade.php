@@ -73,7 +73,9 @@
                                                             <a href="{{url($value_category_header->slug)}}" class="menu-title">{{$value_category_header->name}}</a>
                                                             <ul>
                                                                 @foreach($value_category_header->getSubCategory as $value_h_sub_category)
-                                                                    <li><a href="{{url($value_category_header->slug.'/'.$value_h_sub_category->slug)}}">{{$value_h_sub_category->name}}</a></li>
+                                                                    @if(!empty($value_h_sub_category->getProduct->count()))
+                                                                        <li><a href="{{url($value_category_header->slug.'/'.$value_h_sub_category->slug)}}">{{$value_h_sub_category->name}}</a></li>
+                                                                    @endif
                                                                 @endforeach
                                                             </ul>
                                                         </div>
