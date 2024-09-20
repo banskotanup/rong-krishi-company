@@ -20,10 +20,13 @@ class ProductController extends Controller
             $data['meta_keywords'] = $getSubCategory->meta_keywords;
             $data['getCategory'] = $getCategory;
             $data['getSubCategory'] = $getSubCategory;
+            $data['getSubCategoryFilter'] = SubCategory::getSubCategoryRecord($getCategory->id);
             $data['getProduct'] = Product::getProductRecords($getCategory->id, $getSubCategory->id);
             return view('product.product_list', $data);
         }
         else if(!empty($getCategory) ){
+
+            $data['getSubCategoryFilter'] = SubCategory::getSubCategoryRecord($getCategory->id);
             $data['getCategory'] = $getCategory;
 
             $data['meta_title'] = $getCategory->meta_title;

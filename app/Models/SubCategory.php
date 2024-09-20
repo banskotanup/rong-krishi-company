@@ -55,4 +55,11 @@ class SubCategory extends Model
         ->where('product.status','=', 0)
         ->where('product.is_deleted','=', 0);
     }
+
+    public function totalProduct(){
+        return $this->hasMany(Product::class, 'sub_category_id')
+        ->where('product.status', '=',  0)
+        ->where('product.is_deleted', '=',  0)
+        ->count();
+    }
 }

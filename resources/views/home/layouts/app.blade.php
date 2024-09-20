@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/plugins/nouislider/nouislider.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
     
 </head>
@@ -93,7 +94,7 @@
         </div>
     </div>
 
-    <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
+    {{-- <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
         <div class="row justify-content-center">
             <div class="col-10">
                 <div class="row no-gutters bg-white newsletter-popup-content">
@@ -122,7 +123,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script src="{{url('assets/js/jquery.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap.bundle.min.js')}}"></script>
@@ -131,6 +132,9 @@
     <script src="{{url('assets/js/superfish.min.js')}}"></script>
     <script src="{{url('assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{url('assets/js/nouislider.min.js')}}"></script>
+    <script src="{{url('assets/js/bootstrap-input-spinner.js')}}"></script>
+    <script src="{{url('assets/js/wNumb.js')}}"></script>
 
     <script src="{{url('assets/js/main.js')}}"></script>
     @include('home.loader.custom_loader_js')
