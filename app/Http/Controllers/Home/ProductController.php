@@ -11,10 +11,17 @@ use App\Models\SubCategory;
 class ProductController extends Controller
 {
     public function getCategory($slug, $subSlug = ''){
+        $getProductSingle = Product::getSingleSlug($slug);
         $getCategory = Category::getSingleSlug($slug);
         $getSubCategory = SubCategory::getSingleSlug($subSlug);
 
-        if(!empty($getCategory) && !empty($getSubCategory)){
+        if(!empty($getProductSingle)){
+            $data['meta_title'] = $getProductSingle->title;
+            $data['meta_description'] = $getProductSingle->short_description;
+            $data['getProduct'] = $getProductSingle;
+            return view('product.product_details', $data);
+        }
+        else  if(!empty($getCategory) && !empty($getSubCategory)){
             $data['meta_title'] = $getSubCategory->meta_title;
             $data['meta_description'] = $getSubCategory->meta_description;
             $data['meta_keywords'] = $getSubCategory->meta_keywords;

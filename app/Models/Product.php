@@ -57,4 +57,11 @@ class Product extends Model
     static public function getImageSingle($product_id){
         return ProductImageModel::where('product_id','=', $product_id)->orderBy('order_by', 'asc')->first();
     }
+
+    static public function getSingleSlug($slug){
+        return self::where('slug','=',$slug)
+        ->where('product.is_deleted', '=', 0)
+        ->where('product.status', '=', 0)
+        ->first();
+    }
 }

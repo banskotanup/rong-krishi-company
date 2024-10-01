@@ -38,10 +38,12 @@ class ProductController extends Controller
         $checkSlug = Product::checkSlug($slug);
         if(empty($checkSlug)){
             $product->slug = $slug;
+            $product->save();
         }
         else{
             $new_slug = $slug.'-'.$product->id;
             $product->slug = $new_slug;
+            $product->save();
         }
         return redirect('/product_add/'.$product->id);
         $product->save();
