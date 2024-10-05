@@ -23,44 +23,17 @@
                     <div class="col-md-6">
                         <div class="product-gallery">
                             <figure class="product-main-image">
-                                <img id="product-zoom" src="assets/images/products/single/extended/3.jpg"
-                                    data-zoom-image="assets/images/products/single/extended/3-big.jpg"
-                                    alt="product image">
+                                @php
+                                $getProductImage = $getProduct->getImageSingle($getProduct->id);
+                                @endphp
+                                @if(!empty($getProductImage) && !empty($getProductImage->getImage()))
+                                <img id="product-zoom" src="{{$getProductImage->getImage()}}"
+                                    alt="{{$getProduct->title}}">
+                                @endif
 
-                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
-                                    <i class="icon-arrows"></i>
-                                </a>
-                            </figure><!-- End .product-main-image -->
-
-                            <div id="product-zoom-gallery" class="product-image-gallery">
-                                <a class="product-gallery-item" href="#"
-                                    data-image="assets/images/products/single/extended/1.jpg"
-                                    data-zoom-image="assets/images/products/single/extended/1-big.jpg">
-                                    <img src="assets/images/products/single/extended/1-small.jpg" alt="product side">
-                                </a>
-
-                                <a class="product-gallery-item" href="#"
-                                    data-image="assets/images/products/single/extended/2.jpg"
-                                    data-zoom-image="assets/images/products/single/extended/2-big.jpg">
-                                    <img src="assets/images/products/single/extended/2-small.jpg" alt="product cross">
-                                </a>
-
-                                <a class="product-gallery-item active" href="#"
-                                    data-image="assets/images/products/single/extended/3.jpg"
-                                    data-zoom-image="assets/images/products/single/extended/3-big.jpg">
-                                    <img src="assets/images/products/single/extended/3-small.jpg"
-                                        alt="product with model">
-                                </a>
-
-                                <a class="product-gallery-item" href="#"
-                                    data-image="assets/images/products/single/extended/4.jpg"
-                                    data-zoom-image="assets/images/products/single/extended/4-big.jpg">
-                                    <img src="assets/images/products/single/extended/4-small.jpg" alt="product back">
-                                </a>
-
-                            </div><!-- End .product-image-gallery -->
-                        </div><!-- End .product-gallery -->
-                    </div><!-- End .col-md-6 -->
+                            </figure>
+                        </div>
+                    </div>
 
                     <div class="col-md-6">
                         <div class="product-details">
@@ -68,53 +41,26 @@
 
                             <div class="ratings-container">
                                 <div class="ratings">
-                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                </div><!-- End .ratings -->
+                                    <div class="ratings-val" style="width: 80%;"></div>
+                                </div>
                                 <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
-                            </div><!-- End .rating-container -->
+                            </div>
 
                             <div class="product-price">
-                                NRP {{$getProduct->price}}
-                            </div><!-- End .product-price -->
+                                NRP {{number_format($getProduct->price, 2)}}
+                            </div>
 
                             <div class="product-content">
                                 <p>{{$getProduct->short_description}}</p>
-                            </div><!-- End .product-content -->
-
-                            <div class="details-filter-row details-row-size">
-                                <label>Color:</label>
-
-                                <div class="product-nav product-nav-dots">
-                                    <a href="#" class="active" style="background: #eab656;"><span class="sr-only">Color
-                                            name</span></a>
-                                    <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #3a588b;"><span class="sr-only">Color name</span></a>
-                                    <a href="#" style="background: #caab97;"><span class="sr-only">Color name</span></a>
-                                </div><!-- End .product-nav -->
-                            </div><!-- End .details-filter-row -->
-
-                            <div class="details-filter-row details-row-size">
-                                <label for="size">Size:</label>
-                                <div class="select-custom">
-                                    <select name="size" id="size" class="form-control">
-                                        <option value="#" selected="selected">Select a size</option>
-                                        <option value="s">Small</option>
-                                        <option value="m">Medium</option>
-                                        <option value="l">Large</option>
-                                        <option value="xl">Extra Large</option>
-                                    </select>
-                                </div><!-- End .select-custom -->
-
-                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
-                            </div><!-- End .details-filter-row -->
+                            </div>
 
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
                                 <div class="product-details-quantity">
                                     <input type="number" id="qty" class="form-control" value="1" min="1" max="10"
                                         step="1" data-decimals="0" required>
-                                </div><!-- End .product-details-quantity -->
-                            </div><!-- End .details-filter-row -->
+                                </div>
+                            </div>
 
                             <div class="product-details-action">
                                 <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
@@ -122,10 +68,8 @@
                                 <div class="details-action-wrapper">
                                     <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
                                             Wishlist</span></a>
-                                    <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to
-                                            Compare</span></a>
-                                </div><!-- End .details-action-wrapper -->
-                            </div><!-- End .product-details-action -->
+                                </div>
+                            </div>
 
                             <div class="product-details-footer">
                                 <div class="product-cat">
@@ -135,7 +79,7 @@
                                     <a
                                         href="{{url($getProduct->getCategory->slug.'/'.$getProduct->getSubCategory->slug)}}">{{
                                         $getProduct->getSubCategory->name}}</a>
-                                </div><!-- End .product-cat -->
+                                </div>
 
                                 <div class="social-icons social-icons-sm">
                                     <span class="social-label">Share:</span>
@@ -148,12 +92,12 @@
                                     <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
                                             class="icon-pinterest"></i></a>
                                 </div>
-                            </div><!-- End .product-details-footer -->
-                        </div><!-- End .product-details -->
-                    </div><!-- End .col-md-6 -->
-                </div><!-- End .row -->
-            </div><!-- End .product-details-top -->
-        </div><!-- End .container -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="product-details-tab product-details-extended">
             <div class="container">
@@ -175,7 +119,7 @@
                             role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
                     </li>
                 </ul>
-            </div><!-- End .container -->
+            </div>
 
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel"
@@ -183,14 +127,14 @@
                     <div class="product-desc-content">
                         <div class="container">
                             {!! $getProduct -> description !!}
-                        </div><!-- End .container -->
-                    </div><!-- End .product-desc-content -->
-                </div><!-- .End .tab-pane -->
+                        </div>
+                    </div>
+                </div>
                 <div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="product-info-link">
                     <div class="product-desc-content">
                         <div class="container">
                             {!! $getProduct -> additional_information !!}
-                        </div><!-- End .container -->
+                        </div>
                     </div><!-- End .product-desc-content -->
                 </div><!-- .End .tab-pane -->
                 <div class="tab-pane fade" id="product-shipping-tab" role="tabpanel"
