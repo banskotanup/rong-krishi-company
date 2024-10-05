@@ -48,7 +48,7 @@
                 </button>
 
                 <a href="{{url('/')}}" class="logo">
-                    <img src="{{url('assets/images/logo.png')}}" width="105" height="25">
+                    <img src="{{url('logo.png')}}" width="40" height="10">
                 </a>
 
                 <nav class="main-nav">

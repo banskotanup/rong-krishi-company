@@ -64,4 +64,12 @@ class Product extends Model
         ->where('product.status', '=', 0)
         ->first();
     }
+
+    public function getCategory(){
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function getSubCategory(){
+        return $this->belongsTo(SubCategory::class, 'sub_category_id');
+    }
 }
