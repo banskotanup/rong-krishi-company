@@ -97,12 +97,13 @@
                     @if(!empty($product->getImage->count()))
                     <div class="row" id="sortable">
                         @foreach($product->getImage as $image)
-                            @if(!empty($image->getImage()))
-                                <div class="col-md-1 sortable_image" id="{{$image->id}}" style="text-align: center;">
-                                    <img style="height: 100px; width:100%;" src="{{$image->getImage()}}" alt="">
-                                    <a onclick="confirmation(event)" href="{{url('/image_delete/'.$image->id)}}" class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
-                                </div>
-                            @endif
+                        @if(!empty($image->getImage()))
+                        <div class="col-md-1 sortable_image" id="{{$image->id}}" style="text-align: center;">
+                            <img style="height: 100px; width:100%;" src="{{$image->getImage()}}" alt="">
+                            <a onclick="confirmation(event)" href="{{url('/image_delete/'.$image->id)}}"
+                                class="btn btn-danger btn-sm" style="margin-top:10px;">Delete</a>
+                        </div>
+                        @endif
                         @endforeach
                     </div>
                     @endif
@@ -112,7 +113,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Short Description</label>
-                                <textarea name="short_description" class="form-control shortDescription"
+                                <textarea name="short_description" class="form-control"
                                     placeholder="Enter Short Description">{{$product->short_description}}</textarea>
                             </div>
                         </div>
@@ -207,13 +208,6 @@
 
         $('.editor').summernote({
             height: 150,   //set editable area's height
-            codemirror: { // codemirror options
-                theme: 'monokai'
-            }
-        });
-
-        $('.shortDescription').summernote({
-            height: 50,   //set editable area's height
             codemirror: { // codemirror options
                 theme: 'monokai'
             }

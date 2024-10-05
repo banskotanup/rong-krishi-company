@@ -93,7 +93,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Short Description<span style="color: red;">*</span></label>
-                                <textarea name="short_description" class="form-control shortDescription" required
+                                <textarea name="short_description" class="form-control" required
                                     placeholder="Enter Short Description"></textarea>
                             </div>
                         </div>
@@ -192,11 +192,5 @@
             }
         });
 
-        $('.shortDescription').summernote({
-            height: 50,   //set editable area's height
-            codemirror: { // codemirror options
-                theme: 'monokai'
-            }
-        });
 </script>
 @endsection
