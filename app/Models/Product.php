@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Request;
 
 class Product extends Model
 {
@@ -44,6 +45,10 @@ class Product extends Model
         }
         if(!empty($sub_category_id)){
             $return = $return->where('product.sub_category_id', '=', $sub_category_id);
+        }
+
+        if(!empty(Request::get('q'))){
+            $return = $return->where('product.title', 'like', '%'.Request::get('q').'%');
         }
         $return = $return->where('product.is_deleted', '=', 0)
         ->where('product.status', '=', 0)

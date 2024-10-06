@@ -47,4 +47,13 @@ class ProductController extends Controller
             abort(404);
         }
     }
+
+    public function getProductSearch(Request $request){
+            $data['meta_title'] = 'search';
+            $data['meta_description'] = '';
+            $data['meta_keywords'] = '';
+            $getProduct = Product::getProductRecords();
+            $data['getProduct'] = $getProduct;
+            return view('product.product_list', $data);
+    }
 }
