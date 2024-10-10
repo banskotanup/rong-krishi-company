@@ -4,10 +4,10 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img src="{{url('assets/images/logo-footer.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
-                        <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+                        <img style="margin-left: 80px;" src="{{url('trslogo.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <h3 style="color: #777;">रोङ कृषि कम्पनी प्रा. लि. <br> नेपालको कृषि रूपान्तरण</h3>
 
-                        <div class="social-icons">
+                        <div class="social-icons" style="margin-top: 20px;">
                             <a href="#" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
                             <a href="#" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
                             <a href="#" class="social-icon" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>

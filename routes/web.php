@@ -76,6 +76,7 @@ route::post('/product_image_sortable',[ProductController::class, 'product_image_
 
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
+route::get('/about_us',[HomeController::class, 'about_us']);
 
 
 //Home/ProductController Goes Here...
@@ -85,6 +86,3 @@ route::get('/cart',[CartController::class, 'getCart']);
 route::post('/cart',[CartController::class, 'add_to_Cart']);
 route::post('/cart/update',[CartController::class, 'update_cart']);
 route::get('/{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);
-
-// food/fp3
-// $value->category_slug.'/'.

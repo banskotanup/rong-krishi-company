@@ -48,7 +48,7 @@
                 </button>
 
                 <a href="{{url('/')}}" class="logo">
-                    <img src="{{url('logo.png')}}" width="40" height="10">
+                    <img src="{{url('trslogo.png')}}" width="40" height="10">
                 </a>
 
                 <nav class="main-nav">
@@ -93,12 +93,7 @@
 
                             <ul>
                                 <li>
-                                    <a href="about.html" class="sf-with-ul">About</a>
-
-                                    <ul>
-                                        <li><a href="about.html">About 01</a></li>
-                                        <li><a href="about-2.html">About 02</a></li>
-                                    </ul>
+                                    <a href="{{url('/about_us')}}">About Us</a>
                                 </li>
                                 <li>
                                     <a href="contact.html" class="sf-with-ul">Contact</a>

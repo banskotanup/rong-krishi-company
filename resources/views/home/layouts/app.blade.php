@@ -13,7 +13,7 @@
     @if((!empty($meta_keywords)))
     <meta name="keywords" content="{{$meta_keywords}}">
     @endif
-    <link rel="shortcut icon" href="{{url('assets/images/icons/favicon.ico')}}">
+    <link rel="icon" type="image/x-icon" href="trslogo.png">
 
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/owl-carousel/owl.carousel.css')}}">

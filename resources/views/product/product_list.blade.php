@@ -83,7 +83,9 @@
                                             <input type="hidden" name="qty" value="1">
                                             <input type="hidden" name="product_name" value="{{$value->title}}">
                                             <div class="product-action">
-                                                <button style="" type="submit" href="" class="btn-product btn-cart"><span>add to cart</span></button>
+                                                <button type="submit"
+                                                    class="btn-product btn-cart"><span>add to cart</span>
+                                                </button>
                                             </div>
 
                                         </form>

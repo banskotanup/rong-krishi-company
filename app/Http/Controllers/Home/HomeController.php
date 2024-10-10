@@ -13,4 +13,11 @@ class HomeController extends Controller
         $data['meta_keywords'] = '';
         return view('index', $data);
     }
+
+    public function about_us(){
+        $data['meta_title'] = 'About Us';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('homepages.about', $data);
+    }
 }
