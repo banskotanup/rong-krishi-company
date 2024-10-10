@@ -76,9 +76,17 @@
                                                     to wishlist</span></a>
                                         </div>
 
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                        </div>
+
+                                        <form action="{{url('/cart')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$value->id}}">
+                                            <input type="hidden" name="qty" value="1">
+                                            <input type="hidden" name="product_name" value="{{$value->title}}">
+                                            <div class="product-action">
+                                                <button style="" type="submit" href="" class="btn-product btn-cart"><span>add to cart</span></button>
+                                            </div>
+
+                                        </form>
                                     </figure>
 
                                     <div class="product-body">

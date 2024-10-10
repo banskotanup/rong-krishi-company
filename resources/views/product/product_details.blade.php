@@ -54,22 +54,27 @@
                                 <p>{{$getProduct->short_description}}</p>
                             </div>
 
+                            <form action="{{url('/cart')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{$getProduct->id}}">
+                            <input type="hidden" name="product_name" value="{{$getProduct->title}}">
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
                                 <div class="product-details-quantity">
-                                    <input type="number" id="qty" class="form-control" value="1" min="1" max="10"
-                                        step="1" data-decimals="0" required>
+                                    <input type="number" id="qty" class="form-control" value="1" min="1" max="100"
+                                        step="1" name="qty" data-decimals="0" required>
                                 </div>
                             </div>
 
                             <div class="product-details-action">
-                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-
+                                <button style="background:#fff; color:#c96;" type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
                                 <div class="details-action-wrapper">
                                     <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
                                             Wishlist</span></a>
                                 </div>
                             </div>
+
+                        </form>
 
                             <div class="product-details-footer">
                                 <div class="product-cat">

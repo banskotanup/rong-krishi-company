@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\LandingPageController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Home\ProductController as ProductFront;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -76,7 +77,14 @@ route::post('/product_image_sortable',[ProductController::class, 'product_image_
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
 
+
 //Home/ProductController Goes Here...
 route::get('/search',[ProductFront::class, 'getProductSearch']);
+route::get('/cart/delete/{rowId}',[CartController::class, 'cart_delete']);
+route::get('/cart',[CartController::class, 'getCart']);
+route::post('/cart',[CartController::class, 'add_to_Cart']);
+route::post('/cart/update',[CartController::class, 'update_cart']);
 route::get('/{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);
 
+// food/fp3
+// $value->category_slug.'/'.
