@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="product-details-action">
-                                <button style="background:#fff; color:#c96;" type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
+                                <button type="submit" class="btn-product btn-cart"><span>add to cart</span></button>
                                 <div class="details-action-wrapper">
                                     <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
                                             Wishlist</span></a>

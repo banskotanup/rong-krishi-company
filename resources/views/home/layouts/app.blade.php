@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{url('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/nouislider/nouislider.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
+    @include('home.cssJs.custom_style')
     
 </head>
 
@@ -138,7 +139,6 @@
 
     <script src="{{url('assets/js/main.js')}}"></script>
     @include('home.loader.custom_loader_js')
-
     <script type="text/javascript">
         $('body').delegate('#SubmitFormLogin', 'submit', function(e){
             e.preventDefault();

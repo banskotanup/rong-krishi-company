@@ -20,4 +20,32 @@ class HomeController extends Controller
         $data['meta_keywords'] = '';
         return view('homepages.about', $data);
     }
+
+    public function contact_us(){
+        $data['meta_title'] = 'Contact Us';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('homepages.contact', $data);
+    }
+
+    public function faq(){
+        $data['meta_title'] = 'FAQs';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('homepages.faq', $data);
+    }
+
+    public function error_404(){
+        $data['meta_title'] = 'Error 404';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('homepages.error_404', $data);
+    }
+
+    public function blog(){
+        $data['meta_title'] = 'Blog';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('homepages.blog', $data);
+    }
 }

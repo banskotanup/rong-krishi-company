@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget widget-about">
-                        <img style="margin-left: 80px;" src="{{url('trslogo.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <img src="{{url('trslogo.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
                         <h3 style="color: #777;">रोङ कृषि कम्पनी प्रा. लि. <br> नेपालको कृषि रूपान्तरण</h3>
 
                         <div class="social-icons" style="margin-top: 20px;">

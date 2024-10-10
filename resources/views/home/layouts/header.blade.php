@@ -25,8 +25,8 @@
                             <li><a href="tel:#"><i class="icon-phone"></i>Call: +977 9876543210</a></li>
                             <li><a href="{{url('wishlist')}}"><i class="icon-heart-o"></i>My Wishlist
                                     <span>(3)</span></a></li>
-                            <li><a href="{{url('about')}}">About Us</a></li>
-                            <li><a href="{{url('contact')}}">Contact Us</a></li>
+                            <li><a href="{{url('/about_us')}}">About Us</a></li>
+                            <li><a href="{{url('/contact_us')}}">Contact Us</a></li>
                             @if(!empty(Auth::check()))
                                 <li><a href="{{url('/log_out')}}"><i class="icon-user"></i>Logout</a></li>
                             @else
@@ -53,11 +53,11 @@
 
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <li class="megamenu-container active">
+                        <li class="megamenu-container {{ Request::is('/') ? 'active' : ''}}">
                             <a href="{{url('/')}}">Home</a>
                         </li>
-                        <li>
-                            <a href="javascript:;" class="sf-with-ul">Shop</a>
+                        <li class="{{ Request::is('') ? 'active' : ''}}">
+                            <a href="javascript:;" style="margin-left:1px;" class="sf-with-ul">Shop</a>
 
                             <div class="megamenu megamenu-md">
                                 <div class="row no-gutters">
@@ -88,7 +88,7 @@
                             </div>
                         </li>
 
-                        <li>
+                        <li class="{{ Request::is('about_us', 'contact_us', 'faq', 'error_404') ? 'active' : ''}}">
                             <a href="#" class="sf-with-ul">Pages</a>
 
                             <ul>
@@ -96,59 +96,14 @@
                                     <a href="{{url('/about_us')}}">About Us</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html" class="sf-with-ul">Contact</a>
-
-                                    <ul>
-                                        <li><a href="contact.html">Contact 01</a></li>
-                                        <li><a href="contact-2.html">Contact 02</a></li>
-                                    </ul>
+                                    <a href="{{url('/contact_us')}}">Contact</a>
                                 </li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="404.html">Error 404</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                <li><a href="{{url('/faq')}}">FAQs</a></li>
+                                <li><a href="{{url('/error_404')}}">Error 404</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="blog.html" class="sf-with-ul">Blog</a>
-
-                            <ul>
-                                <li><a href="blog.html">Classic</a></li>
-                                <li><a href="blog-listing.html">Listing</a></li>
-                                <li>
-                                    <a href="#">Grid</a>
-                                    <ul>
-                                        <li><a href="blog-grid-2cols.html">Grid 2 columns</a></li>
-                                        <li><a href="blog-grid-3cols.html">Grid 3 columns</a></li>
-                                        <li><a href="blog-grid-4cols.html">Grid 4 columns</a></li>
-                                        <li><a href="blog-grid-sidebar.html">Grid sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Masonry</a>
-                                    <ul>
-                                        <li><a href="blog-masonry-2cols.html">Masonry 2 columns</a></li>
-                                        <li><a href="blog-masonry-3cols.html">Masonry 3 columns</a></li>
-                                        <li><a href="blog-masonry-4cols.html">Masonry 4 columns</a></li>
-                                        <li><a href="blog-masonry-sidebar.html">Masonry sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Mask</a>
-                                    <ul>
-                                        <li><a href="blog-mask-grid.html">Blog mask grid</a></li>
-                                        <li><a href="blog-mask-masonry.html">Blog mask masonry</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Single Post</a>
-                                    <ul>
-                                        <li><a href="single.html">Default with sidebar</a></li>
-                                        <li><a href="single-fullwidth.html">Fullwidth no sidebar</a></li>
-                                        <li><a href="single-fullwidth-sidebar.html">Fullwidth with sidebar</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li class="{{ Request::is('blog') ? 'active' : ''}}">
+                            <a href="{{url('/blog')}}">Blog</a>
                         </li>
                     </ul>
                 </nav>

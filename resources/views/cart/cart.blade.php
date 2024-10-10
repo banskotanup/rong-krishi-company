@@ -22,8 +22,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
+                        
                         <form action="{{url('/cart/update')}}" method="POST">
                         @csrf
+                        @if(!empty(Cart::count()))
                             <table class="table table-cart table-mobile">
                                 
                                 <thead>
@@ -100,6 +102,11 @@
                                 <button type="submit" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i
                                         class="icon-refresh"></i></button>
                             </div>
+                            @else
+                            Nothing to show here
+                            <div><a href="{{url('/')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
+                                SHOPPING</span><i class="icon-refresh"></i></a></div>
+                            @endif
                         </form>
                     </div>
                     <aside class="col-lg-3">
@@ -163,9 +170,10 @@
                             <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
                                 CHECKOUT</a>
                         </div><!-- End .summary -->
-
+                        @if(!empty(Cart::count()))
                         <a href="{{url('/')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
                                 SHOPPING</span><i class="icon-refresh"></i></a>
+                                @endif
                     </aside><!-- End .col-lg-3 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->

@@ -38,11 +38,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5 mb-3 mb-lg-0">
-                        <h2 class="title">Who We Are</h2><!-- End .title -->
-                        <p class="lead text-primary mb-3">Empowering Agriculture, <span style="color: green; font-family:'Barcelony Signature'; font-size:20px;">Enriching Lives</span></p><!-- End .lead text-primary -->
+                        <h2 class="title">Who We Are?</h2><!-- End .title -->
+                        <p style="font-weight: 510px; font-size:18px; color:black;">Empowering Agriculture, <span style="color: green; font-family:'Barcelony Signature'; font-size:20px;">Enriching Lives</span></p><!-- End .lead text-primary -->
                         <p class="mb-2">At Rong Krishi, we are a dedicated team of agricultural enthusiasts committed to revolutionizing the farming landscape. With a focus on sustainability, innovation, and community empowerment, we strive to provide farmers with the tools and knowledge they need to thrive. Our passion for fresh, healthy produce drives us to connect local farmers with consumers, ensuring that quality food is accessible to all. Through our efforts, we aim to create a positive impact on the agricultural sector and foster a healthier environment for future generations.</p>
 
-                        <a href="blog.html" class="btn btn-sm btn-minwidth btn-outline-primary-2">
+                        <a href="{{url('/blog')}}" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                             <span>VIEW OUR BLOGS</span>
                             <i class="icon-long-arrow-right"></i>
                         </a>
@@ -55,7 +55,7 @@
                     </div><!-- End .col-lg-6 -->
                 </div><!-- End .row -->
             </div><!-- End .container -->
-        </div><!-- End .bg-light-2 pt-6 pb-6 -->
+        </div>
 
         <div class="container">
             <div class="row">
@@ -245,7 +245,7 @@
                     </blockquote><!-- End .testimonial -->
                 </div><!-- End .testimonials-slider owl-carousel -->
             </div><!-- End .container -->
-        </div><!-- End .bg-light-2 pt-5 pb-6 -->
+        </div>
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 

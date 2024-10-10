@@ -77,6 +77,10 @@ route::post('/product_image_sortable',[ProductController::class, 'product_image_
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
 route::get('/about_us',[HomeController::class, 'about_us']);
+route::get('/contact_us',[HomeController::class, 'contact_us']);
+route::get('/faq',[HomeController::class, 'faq']);
+route::get('/error_404',[HomeController::class, 'error_404']);
+route::get('/blog',[HomeController::class, 'blog']);
 
 
 //Home/ProductController Goes Here...
