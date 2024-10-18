@@ -3,10 +3,12 @@
 @include('home.loader.loader')
 <main class="main">
     <div class="intro-section bg-lighter pt-5 pb-6">
-        <h3 style="font-family: 'Barcelony Signature'; margin-top:10px;" class="cursor typewriter-animation">Welcome To <span style="color: rgb(5, 136, 5); font-family:'Barcelony Signature';">Rong</span> <span style="color: rgb(65, 107, 65);">Krishi</span>!</h3>
-        <div class="container" >
+        <h3 style="font-family: 'Barcelony Signature'; margin-top:10px;" class="cursor typewriter-animation">Welcome To
+            <span style="color: rgb(5, 136, 5); font-family:'Barcelony Signature';">Rong</span> <span
+                style="color: rgb(65, 107, 65);">Krishi</span>!</h3>
+        <div class="container">
             <div class="row" style="margin-top:5px;">
-                <div class="col-lg-8" >
+                <div class="col-lg-8">
                     <div class="intro-slider-container slider-container-ratio slider-container-1 mb-2 mb-lg-0">
                         <div class="intro-slider intro-slider-1 owl-carousel owl-simple owl-light owl-nav-inside"
                             data-toggle="owl" data-owl-options='{
@@ -30,7 +32,7 @@
                                     <h3 class="intro-subtitle">Our Collection</h3>
                                     <h1 class="intro-title">Fresh Fruits<br> & Vegetables</h1>
 
-                                    <a href="category.html" class="btn btn-outline-white">
+                                    <a href="#products" class="btn btn-outline-white">
                                         <span>SHOP NOW</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </a>
@@ -50,7 +52,7 @@
                                     <h3 class="intro-subtitle">News and Inspiration</h3>
                                     < <h1 class="intro-title">New Arrivals</h1>
 
-                                        <a href="category.html" class="btn btn-outline-white">
+                                        <a href="#products" class="btn btn-outline-white">
                                             <span>SHOP NOW</span>
                                             <i class="icon-long-arrow-right"></i>
                                         </a>
@@ -72,7 +74,7 @@
                                     <h1 class="intro-title">National & International <br>Delivery</h1>
                                     <!-- End .intro-title -->
 
-                                    <a href="category.html" class="btn btn-outline-white">
+                                    <a href="#products" class="btn btn-outline-white">
                                         <span>SHOP NOW</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </a>
@@ -99,7 +101,7 @@
                                         </h4><!-- End .banner-subtitle -->
                                         <h3 class="banner-title text-white"><a href="#">Healthy, <br> fresh, and pure
                                                 <br> – all in one place.</a></h3><!-- End .banner-title -->
-                                        <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
+                                        <a href="#products" class="btn btn-outline-white banner-link">Shop Now<i
                                                 class="icon-long-arrow-right"></i></a>
                                     </div><!-- End .banner-content -->
                                 </div><!-- End .banner -->
@@ -119,8 +121,8 @@
                                         <h3 class="banner-title text-white"><a href="#">Transforming traditional <br>
                                                 farming into a thriving business <br> for a sustainable future</a></h3>
                                         <!-- End .banner-title -->
-                                        <a href="{{url('/blog')}}" class="btn btn-outline-white banner-link">Discover Now<i
-                                                class="icon-long-arrow-right"></i></a>
+                                        <a href="{{url('/blog')}}" class="btn btn-outline-white banner-link">Discover
+                                            Now<i class="icon-long-arrow-right"></i></a>
                                     </div><!-- End .banner-content -->
                                 </div><!-- End .banner -->
                             </div><!-- End .col-md-6 col-lg-12 -->
@@ -136,7 +138,8 @@
                     <div>
                         <h2 class="title" style="text-align: center;">The Hub for Fresh, Healthy Produce and Innovation.
                             <span style="color: green; font-family:'Barcelony Signature';">Where Quality Meets Freshness
-                                in Agriculture.</span></h2>
+                                in Agriculture.</span>
+                        </h2>
                     </div><!-- End .brands-text -->
                 </div>
             </div><!-- End .row -->
@@ -166,15 +169,24 @@
                         <div class="row">
                             <div class="col-lg-5 mb-3 mb-lg-0">
                                 <h2 class="title">Who We Are?</h2><!-- End .title -->
-                                <p style="font-weight: 510px; font-size:18px; color:black;">Empowering Agriculture, <span style="color: green; font-family:'Barcelony Signature'; font-size:20px;">Enriching Lives</span></p><!-- End .lead text-primary -->
-                                <p class="mb-2">At Rong Krishi, we are a dedicated team of agricultural enthusiasts committed to revolutionizing the farming landscape. With a focus on sustainability, innovation, and community empowerment, we strive to provide farmers with the tools and knowledge they need to thrive. Our passion for fresh, healthy produce drives us to connect local farmers with consumers, ensuring that quality food is accessible to all. Through our efforts, we aim to create a positive impact on the agricultural sector and foster a healthier environment for future generations.</p>
-        
+                                <p style="font-weight: 510px; font-size:18px; color:black;">Empowering Agriculture,
+                                    <span
+                                        style="color: green; font-family:'Barcelony Signature'; font-size:20px;">Enriching
+                                        Lives</span></p><!-- End .lead text-primary -->
+                                <p class="mb-2">We are a dedicated team of agricultural enthusiasts committed to
+                                    revolutionizing the farming landscape. With a focus on sustainability, innovation,
+                                    and community empowerment, we strive to provide farmers with the tools and knowledge
+                                    they need to thrive. Our passion for fresh, healthy produce drives us to connect
+                                    local farmers with consumers, ensuring that quality food is accessible to all.
+                                    Through our efforts, we aim to create a positive impact on the agricultural sector
+                                    and foster a healthier environment for future generations.</p>
+
                                 <a href="{{url('/blog')}}" class="btn btn-sm btn-minwidth btn-outline-primary-2">
                                     <span>VIEW OUR BLOGS</span>
                                     <i class="icon-long-arrow-right"></i>
                                 </a>
                             </div><!-- End .col-lg-5 -->
-        
+
                             <div class="col-lg-6 offset-lg-1">
                                 <div class="about-images">
                                     <img src="assets/images/about/img-1.jpg" alt="" class="about-img-front">
@@ -184,7 +196,7 @@
                     </div><!-- End .container -->
                 </div>
                 <div class="mb-6"></div><!-- End .mb-6 -->
-                <div class="container" style="margin-top: 1px;">
+                <div class="container" style="margin-top: 1px;" id="products">
                     <div class="heading heading-center mb-3">
                         <h2 class="title-lg">Our Products</h2><!-- End .title -->
 
@@ -195,64 +207,70 @@
                             </li>
                         </ul>
                     </div><!-- End .heading -->
-
-                    <div class="tab-content tab-content-carousel">
-                        <div class="tab-pane p-0 fade show active" id="trendy-all-tab" role="tabpanel"
-                            aria-labelledby="trendy-all-link">
-                            <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow"
-                                data-toggle="owl" data-owl-options='{
-                                            "nav": false, 
-                                            "dots": true,
-                                            "margin": 20,
-                                            "loop": false,
-                                            "responsive": {
-                                                "0": {
-                                                    "items":2
-                                                },
-                                                "480": {
-                                                    "items":2
-                                                },
-                                                "768": {
-                                                    "items":3
-                                                },
-                                                "992": {
-                                                    "items":4
-                                                },
-                                                "1200": {
-                                                    "items":4,
-                                                    "nav": true,
-                                                    "dots": false
-                                                }
-                                            }
-                                        }'>
-
-                                <div class="product product-11 text-center">
+                    <div class="products mb-3">
+                        <div class="row justify-content-center">
+                            @foreach($getOurProduct as $value)
+                            @php
+                            $getProductImage = $value->getImageSingle($value->id);
+                            @endphp
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <div class="product product-7 text-center">
                                     <figure class="product-media">
-                                        <a href="product.html">
-                                            <img src="assets/images/demos/demo-2/products/product-1-1.jpg"
-                                                alt="Product image" class="product-image">
-                                            <img src="assets/images/demos/demo-2/products/product-1-2.jpg"
-                                                alt="Product image" class="product-image-hover">
+                                        <a href="{{$value->slug}}">
+                                            @if(!empty($getProductImage) && !empty($getProductImage->getImage()))
+                                            <img style="height: 280px; width: 380px; object-fit: cover;"
+                                                src="{{$getProductImage->getImage()}}" alt="{{$value->title}}"
+                                                class="product-image">
+                                            @endif
                                         </a>
 
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist"><span>add to
-                                                    wishlist</span></a>
-                                        </div>
+
+                                        <form action="{{url('/wishlist')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$value->id}}">
+                                            <input type="hidden" name="qty" value="1">
+                                            <input type="hidden" name="product_name" value="{{$value->title}}">
+                                            <div class="product-action-vertical">
+                                                <button type="submit" class="btn-product-icon btn-wishlist btn-expandable"><span>add
+                                                        to wishlist</span></button>
+                                            </div>
+                                        </form>
+                                        
+
+
+                                        <form action="{{url('/cart')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$value->id}}">
+                                            <input type="hidden" name="qty" value="1">
+                                            <input type="hidden" name="product_name" value="{{$value->title}}">
+                                            <div class="product-action">
+                                                <button type="submit"
+                                                    class="btn-product btn-cart"><span>add to cart</span>
+                                                </button>
+                                            </div>
+
+                                        </form>
                                     </figure>
 
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="product.html">Butler Stool Ladder</a></h3>
-                                        <!-- End .product-title -->
-                                        <div class="product-price">
-                                            $251,00
+                                        <div class="product-cat">
+                                            <a
+                                                href="{{url($value->category_slug.'/'.$value->sub_category_slug)}}">{{$value->sub_category_name}}</a>
                                         </div>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                        <h3 class="product-title"><a href="{{$value->slug}}">{{$value->title}}</a></h3>
+                                        <div class="product-price">
+                                            NPR {{number_format($value->price, 2)}}
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 20%;"></div>
+                                            </div>
+                                            <span class="ratings-text">( 2 Reviews )</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -261,28 +279,6 @@
     </div>
 
     <div class="mb-6"></div>
-    <h2 class="title-lg text-center mb-4">Shop by Categories</h2>
-    <div class="container categories pt-6">
-
-
-        <div class="row">
-            <div class="col-6 col-lg-4">
-                <div class="banner banner-display banner-link-anim">
-                    <a href="#">
-                        <img src="assets/images/banners/home/banner-1.jpg" alt="Banner">
-                    </a>
-
-                    <div class="banner-content banner-content-center">
-                        <h3 class="banner-title text-white"><a href="#">Outdoor</a></h3>
-                        <a href="#" class="btn btn-outline-white banner-link">Shop Now<i
-                                class="icon-long-arrow-right"></i></a>
-                    </div>
-                </div><!-- End .banner -->
-            </div><!-- End .col-sm-6 col-lg-3 -->
-        </div><!-- End .row -->
-    </div><!-- End .container -->
-
-    <div class="mb-5"></div><!-- End .mb-6 -->
 
 
 
@@ -434,8 +430,7 @@
         <div class="container">
             <h2 class="title text-center mb-3">What Customer Say About Us</h2><!-- End .title text-center -->
 
-            <div class="owl-carousel owl-simple owl-testimonials-photo" data-toggle="owl" 
-                data-owl-options='{
+            <div class="owl-carousel owl-simple owl-testimonials-photo" data-toggle="owl" data-owl-options='{
                     "nav": false, 
                     "dots": true,
                     "margin": 20,
@@ -448,7 +443,10 @@
                 }'>
                 <blockquote class="testimonial text-center">
                     <img src="assets/images/testimonials/user-1.jpg" alt="user">
-                    <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec urna. <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”</p>
+                    <p>“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec urna.
+                        <br>In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
+                        laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut
+                        justo. Suspendisse potenti. ”</p>
                     <cite>
                         Jenson Gregory
                         <span>Customer</span>
@@ -457,7 +455,10 @@
 
                 <blockquote class="testimonial text-center">
                     <img src="assets/images/testimonials/user-2.jpg" alt="user">
-                    <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati impedit eveniet non. ”</p>
+                    <p>“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero
+                        perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique
+                        doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati impedit eveniet
+                        non. ”</p>
 
                     <cite>
                         Victoria Ventura
@@ -471,8 +472,10 @@
     <div class="row" style="margin-top: 20px;">
         <div class="col-lg-12">
             <div>
-                <h2 class="title" style="text-align: center; margin-top:20px;">Got more questions? Contact our support team anytime for assistance!
-                    <a href="{{url('/contact_us')}}" style="font-weight: 501px; font-size:18px;"><span>CONTACT NOW</span><i class="icon-long-arrow-right"></i></a>
+                <h2 class="title" style="text-align: center; margin-top:20px;">Got more questions? Contact our support
+                    team anytime for assistance!
+                    <a href="{{url('/contact_us')}}" style="font-weight: 501px; font-size:18px;"><span>CONTACT
+                            NOW</span><i class="icon-long-arrow-right"></i></a>
                 </h2>
             </div><!-- End .brands-text -->
         </div>
@@ -490,11 +493,12 @@
                             <h3 style="text-align: center;" class="cta-title text-white">Become a member and enjoy fresh
                                 discounts and special offers!</h3>
                         </div>
-                        <a style="margin-top: 20px; background:green;" href="{{url('/contact_us')}}" class="btn btn-outline-white"><span>Request
-                            Membership</span><i class="icon-long-arrow-right"></i></a>
-                
+                        <a style="margin-top: 20px; background:green;" href="{{url('/contact_us')}}"
+                            class="btn btn-outline-white"><span>Request
+                                Membership</span><i class="icon-long-arrow-right"></i></a>
+
                     </div>
-                        
+
                 </div>
             </div>
         </div>

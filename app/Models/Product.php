@@ -94,4 +94,19 @@ class Product extends Model
 
         return $return;
     }
+
+    static public function getOurProduct(){
+        $return = Product::select('product.*', 'users.name as created_by_name', 'category.name as category_name', 
+        'category.slug as category_slug','sub_category.name as sub_category_name', 'sub_category.slug as sub_category_slug')
+        ->join('users','users.id', '=', 'product.created_by')
+        ->join('category','category.id', '=', 'product.category_id')
+        ->join('sub_category','sub_category.id', '=', 'product.sub_category_id')
+        ->where('product.isProduct','=',0)
+        ->where('product.is_deleted','=',0)
+        ->where('product.status','=',0)
+        ->orderBy('product.id', 'desc')
+        ->limit(12)
+        ->get();
+        return $return;
+    }
 }

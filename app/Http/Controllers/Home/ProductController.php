@@ -11,11 +11,6 @@ use App\Models\SubCategory;
 class ProductController extends Controller
 {
 
-    public function product_list(){
-        $data['getRecords'] = Product::getProduct();
-        return view('index', $data);
-    }
-
     public function getCategory($slug, $subSlug = ''){
         $getProductSingle = Product::getSingleSlug($slug);
         $getCategory = Category::getSingleSlug($slug);

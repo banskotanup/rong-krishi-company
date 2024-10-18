@@ -71,10 +71,18 @@
                                             @endif
                                         </a>
 
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                    to wishlist</span></a>
-                                        </div>
+
+                                        <form action="{{url('/wishlist')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{$value->id}}">
+                                            <input type="hidden" name="qty" value="1">
+                                            <input type="hidden" name="product_name" value="{{$value->title}}">
+                                            <div class="product-action-vertical">
+                                                <button type="submit" class="btn-product-icon btn-wishlist btn-expandable"><span>add
+                                                        to wishlist</span></button>
+                                            </div>
+                                        </form>
+                                        
 
 
                                         <form action="{{url('/cart')}}" method="POST">

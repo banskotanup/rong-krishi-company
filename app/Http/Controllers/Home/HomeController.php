@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\SubCategory;
 
 class HomeController extends Controller
 {
@@ -11,6 +14,7 @@ class HomeController extends Controller
         $data['meta_title'] = 'Rong Krishi Company';
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
+        $data['getOurProduct'] = Product::getOurProduct();
         return view('index', $data);
     }
 
@@ -47,5 +51,12 @@ class HomeController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
         return view('homepages.blog', $data);
+    }
+
+    public function getShop(){
+        $data['meta_title'] = 'Shop';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('product.shop', $data);
     }
 }

@@ -103,78 +103,82 @@
                                         class="icon-refresh"></i></button>
                             </div>
                             @else
-                            Nothing to show here
-                            <div><a href="{{url('/')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
-                                SHOPPING</span><i class="icon-refresh"></i></a></div>
+                            <div>
+                                <p>Nothing to show here</p>
+                            </div>
+                            <aside class="col-lg-4">
+                                <a href="{{url('/shop')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>GO TO SHOP</span><i class="icon-arrow-right"></i></a>
+                            </aside>
                             @endif
                         </form>
                     </div>
-                    <aside class="col-lg-3">
-                        <div class="summary summary-cart">
-                            <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
 
-                            <table class="table table-summary">
-                                <tbody>
-                                    <tr class="summary-subtotal">
-                                        <td>Subtotal:</td>
-                                        <td>NPR {{Cart::subTotal()}}</td>
-                                    </tr><!-- End .summary-subtotal -->
-                                    <tr class="summary-shipping">
-                                        <td>Shipping:</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
+                    @if(!empty(Cart::count()))
+                        <aside class="col-lg-3">
+                            <div class="summary summary-cart">
+                                <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
 
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="free-shipping" name="shipping"
-                                                    class="custom-control-input">
-                                                <label class="custom-control-label" for="free-shipping">Free
-                                                    Shipping</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>NPR 0.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
+                                <table class="table table-summary">
+                                    <tbody>
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td>NPR {{Cart::subTotal()}}</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr class="summary-shipping">
+                                            <td>Shipping:</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
 
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="standart-shipping" name="shipping"
-                                                    class="custom-control-input">
-                                                <label class="custom-control-label"
-                                                    for="standart-shipping">Standart:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>NPR 0.00</td>
-                                    </tr><!-- End .summary-shipping-row -->
+                                        <tr class="summary-shipping-row">
+                                            <td>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="free-shipping" name="shipping"
+                                                        class="custom-control-input">
+                                                    <label class="custom-control-label" for="free-shipping">Free
+                                                        Shipping</label>
+                                                </div><!-- End .custom-control -->
+                                            </td>
+                                            <td>NPR 0.00</td>
+                                        </tr><!-- End .summary-shipping-row -->
 
-                                    <tr class="summary-shipping-row">
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" id="express-shipping" name="shipping"
-                                                    class="custom-control-input">
-                                                <label class="custom-control-label"
-                                                    for="express-shipping">Express:</label>
-                                            </div><!-- End .custom-control -->
-                                        </td>
-                                        <td>NPR 0.00</td>
-                                    </tr>
+                                        <tr class="summary-shipping-row">
+                                            <td>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="standart-shipping" name="shipping"
+                                                        class="custom-control-input">
+                                                    <label class="custom-control-label"
+                                                        for="standart-shipping">Standart:</label>
+                                                </div><!-- End .custom-control -->
+                                            </td>
+                                            <td>NPR 0.00</td>
+                                        </tr><!-- End .summary-shipping-row -->
 
-                                    <tr class="summary-total">
-                                        <td>Total:</td>
-                                        <td>NPR {{Cart::subTotal()}}</td>
-                                    </tr><!-- End .summary-total -->
-                                </tbody>
-                            </table><!-- End .table table-summary -->
+                                        <tr class="summary-shipping-row">
+                                            <td>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" id="express-shipping" name="shipping"
+                                                        class="custom-control-input">
+                                                    <label class="custom-control-label"
+                                                        for="express-shipping">Express:</label>
+                                                </div><!-- End .custom-control -->
+                                            </td>
+                                            <td>NPR 0.00</td>
+                                        </tr>
 
-                            <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
-                                CHECKOUT</a>
-                        </div><!-- End .summary -->
-                        @if(!empty(Cart::count()))
-                        <a href="{{url('/')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
-                                SHOPPING</span><i class="icon-refresh"></i></a>
-                                @endif
-                    </aside><!-- End .col-lg-3 -->
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td>NPR {{Cart::subTotal()}}</td>
+                                        </tr><!-- End .summary-total -->
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+
+                                <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
+                                    CHECKOUT</a>
+                            </div><!-- End .summary -->
+                            <a href="{{url('/')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
+                                    SHOPPING</span><i class="icon-refresh"></i></a>
+                        </aside><!-- End .col-lg-3 -->
+                    @endif
                 </div><!-- End .row -->
             </div><!-- End .container -->
         </div><!-- End .cart -->
