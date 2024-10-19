@@ -19,6 +19,14 @@ route::get('/',[LandingPageController::class, 'welcome']);
 
 //AuthRoutes Goes Here...
 route::post('/auth_login', [AuthController::class, 'auth_login']);
+route::get('/ipChange', [AuthController::class, 'ipChange']);
+route::post('/ipChange', [AuthController::class, 'auth_ipChange']);
+route::get('/forgot-password', [AuthController::class, 'forgot_password']);
+route::post('/forgot-password', [AuthController::class, 'auth_forgot_password']);
+route::get('/reset/{token}', [AuthController::class, 'reset']);
+route::post('/reset/{token}', [AuthController::class, 'authReset']);
+route::get('/changePw/{token}', [AuthController::class, 'changePw']);
+route::post('/changePw/{token}', [AuthController::class, 'authChangePw']);
 
 //AuthController Routes Goes Here...
 // route::get('/login',[AuthController::class, 'login_admin']);

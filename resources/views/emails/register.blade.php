@@ -13,12 +13,11 @@ Hi <b>{{ $user->name}}</b>
 </p>
 
 <p>This will verify your email address, and then you'll officially be a part of the Rong Krishi Company.</p>
+<p>For security reasons, we recommend that you to change your password using given credentials:</p>
 
-<p>After verifying, use the following credentials to login to your account:</p>
+<p><b>Email:</b> {{$user->email}}</p>
 
-<p><b>Username:</b> {{$user->email}}</p>
-<p><b>Password:</b> 123456</p>
 
-<p>For security reasons, we recommend that you to change your password after logging in.</p>
+
 <p>If you have any questions or need assistance, feel free to contact us.</p>
 @endcomponent

@@ -77,8 +77,8 @@ class MemberController extends Controller
         $user->email_verified_at = date('Y-m-d H:i:s');
         $user->save();
 
-        return redirect('/home')->with('success',"✅ Success! Your account has been verified.
+        return redirect('/ipChange')->with('succes',"✅ Success! Your account has been verified.
 
-                    For your security, we recommend that you login to your account & change your password immediately.");
+                    For your security, we recommend that you enter your email below & change your password immediately.");
     }
 }

@@ -9,7 +9,10 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Hash;
 use Mail;
+use Str;
 use App\Mail\RegisterMail;
+use App\Mail\ForgotPasswordMail;
+use App\Mail\ipChangeMail;
 
 class AuthController extends Controller
 {
@@ -72,5 +75,109 @@ class AuthController extends Controller
             $json['html'] = $html;
         }
         echo json_encode($json);
+    }
+
+    public function forgot_password(Request $request){
+        $data['meta_title'] = 'Forgot Password';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('auth.forgot', $data);
+    }
+
+    public function ipChange(Request $request){
+        $data['meta_title'] = 'Initial Password Change';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('auth.initialPwChange', $data);
+    }
+
+    public function auth_forgot_password(Request $request){
+        $user = User::where('email', '=', $request->email)->first();
+        if(!empty($user)){
+            $user->remember_token = Str::random(30);
+            $user->save();
+
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+            return redirect()->back()->with('succes', "Email has been sent successfully. Please check your inbox to change your password.");
+        }
+        else{
+            return redirect()->back()->with('err', "Email not found in the system.");
+        }
+    }
+
+    public function auth_ipChange(Request $request){
+        $user = User::where('email', '=', $request->email)->first();
+        if(!empty($user)){
+            $user->remember_token = Str::random(30);
+            $user->save();
+
+            Mail::to($user->email)->send(new ipChangeMail($user));
+            return redirect()->back()->with('succes', "Email has been sent successfully. Please check your inbox to change your password.");
+        }
+        else{
+            return redirect()->back()->with('err', "Email not found in the system.");
+        }
+    }
+
+    public function reset($token){
+        $user = User::where('remember_token', '=', $token)->first();
+        if(!empty($user)){
+            $data['user'] = $user;
+            $data['meta_title'] = 'Reset Password';
+            $data['meta_description'] = '';
+            $data['meta_keywords'] = '';
+            return view('auth.reset', $data);
+        }
+        else{
+            abort(404);
+        }
+    }
+
+    public function authReset($token, Request $request){
+        if($request->password == $request->cpassword){
+            $user = User::where('remember_token', '=', $token)->first();
+            $user->password = Hash::make($request->password);
+            $user->remember_token = Str::random(30);
+            $user->email_verified_at = date('Y-m-d H:i:s');
+            $user->save();
+
+
+
+            return redirect(url('/'))->with('success', "Password reset successful.");
+        }
+        else{
+            return redirect()->back()->with('err', "Password and confirm password does not match");
+        }
+    }
+
+    public function changePw($token){
+        $user = User::where('remember_token', '=', $token)->first();
+        if(!empty($user)){
+            $data['user'] = $user;
+            $data['meta_title'] = 'Change Password';
+            $data['meta_description'] = '';
+            $data['meta_keywords'] = '';
+            return view('auth.changePw', $data);
+        }
+        else{
+            abort(404);
+        }
+    }
+
+    public function authChangePw($token, Request $request){
+        if($request->password == $request->cpassword){
+            $user = User::where('remember_token', '=', $token)->first();
+            $user->password = Hash::make($request->password);
+            $user->remember_token = Str::random(30);
+            $user->email_verified_at = date('Y-m-d H:i:s');
+            $user->save();
+
+
+
+            return redirect(url('/'))->with('success', "Password reset successful.");
+        }
+        else{
+            return redirect()->back()->with('err', "Password and confirm password does not match");
+        }
     }
 }

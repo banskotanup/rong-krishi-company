@@ -13,7 +13,7 @@
     @if((!empty($meta_keywords)))
     <meta name="keywords" content="{{$meta_keywords}}">
     @endif
-    <link rel="icon" type="image/x-icon" href="trslogo.png">
+    <link rel="icon" type="image/x-icon" href="{{url('/trslogo.png')}}">
 
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
@@ -83,7 +83,7 @@
                                                 <label class="custom-control-label" for="signin-remember">Remember Me</label>
                                             </div>
 
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                            <a href="{{url('/forgot-password')}}" class="forgot-link">Forgot Your Password?</a>
                                         </div>
                                     </form>
                                 </div>
