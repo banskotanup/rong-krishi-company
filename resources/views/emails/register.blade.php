@@ -19,5 +19,5 @@ Hi <b>{{ $user->name}}</b>
 
 
 
-<p>If you have any questions or need assistance, feel free to contact us.</p>
+<p>If you have any questions or need assistance, feel free to <a href="{{url('/contact_us')}}">contact us</a>.</p>
 @endcomponent

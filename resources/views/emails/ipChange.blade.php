@@ -12,7 +12,7 @@ Hi <b>{{ $user->name}}</b>
     @endcomponent
 </p>
 
-<p>This will change your password, and then you can access your account with new password.</p>
+<p>This will change your password, and then you can access your account.</p>
 
 <p>If you have any questions or need assistance recovering your password, feel free to <a href="{{url('/contact_us')}}">contact us</a>.</p>
 @endcomponent
