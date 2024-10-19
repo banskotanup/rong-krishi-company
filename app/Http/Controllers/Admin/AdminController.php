@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Hash;
 use App\Models\User;
+use Mail;
+use App\Mail\RegisterMail;
 
 class AdminController extends Controller
 {
@@ -37,7 +39,11 @@ class AdminController extends Controller
         $user->status = 0;
         $user->is_admin = 1;
         $user->save();
-        return redirect('/admin_list')->with('success',"Admin created  successfully!!!");
+
+        Mail::to($user->email)->send(new RegisterMail($user));
+        return redirect('/admin_list')->with('success',"Admin Created Successfully!
+        Please check your email for the verification message to complete the process.
+        If you don’t receive the email, check your spam or junk folder. ");
     }
 
     public function edit_admin($id){
