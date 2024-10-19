@@ -2,6 +2,9 @@
 @section('content')
 @include('home.loader.loader')
 <main class="main">
+    <div style="text-align: center;">
+        @include('admin.auth.message')
+    </div>
     <div class="intro-section bg-lighter pt-5 pb-6">
         <h3 style="font-family: 'Barcelony Signature'; margin-top:10px;" class="cursor typewriter-animation">Welcome To
             <span style="color: rgb(5, 136, 5); font-family:'Barcelony Signature';">Rong</span> <span
@@ -284,6 +287,9 @@
 
 
     <div class="container">
+        <div class="heading heading-center mb-3">
+            <h2 class="title-lg">Our Services</h2><!-- End .title -->
+        </div><!-- End .heading -->
         <hr>
         <div class="row justify-content-center">
             <div class="col-lg-4 col-sm-6">

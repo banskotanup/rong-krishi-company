@@ -21,8 +21,8 @@ route::get('/',[LandingPageController::class, 'welcome']);
 route::post('/auth_login', [AuthController::class, 'auth_login']);
 
 //AuthController Routes Goes Here...
-route::get('/login',[AuthController::class, 'login_admin']);
-route::post('/login',[AuthController::class, 'auth_login_admin']);
+// route::get('/login',[AuthController::class, 'login_admin']);
+// route::post('/login',[AuthController::class, 'auth_login_admin']);
 route::get('/log_out',[AuthController::class, 'log_out']);
 
 // AdminController Routes Goes Here...
@@ -38,6 +38,7 @@ route::get('/admin_delete/{id}',[AdminController::class, 'delete_admin'])->middl
 route::get('/member_list',[MemberController::class, 'member_list'])->middleware('is_admin');
 route::get('/member_add',[MemberController::class, 'member_add'])->middleware('is_admin');
 route::post('/member_add',[MemberController::class, 'insert_member'])->middleware('is_admin');
+route::get('/activate/{id}',[MemberController::class, 'activate_email']);
 route::get('/member_edit/{id}',[MemberController::class, 'edit_member'])->middleware('is_admin');
 route::post('/member_edit/{id}',[MemberController::class, 'update_edit_member'])->middleware('is_admin');
 route::get('/member_delete/{id}',[MemberController::class, 'delete_member'])->middleware('is_admin');

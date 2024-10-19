@@ -20,18 +20,18 @@
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Name<span style="color: red;">*</span></label>
                         <input type="text" class="form-control" value="{{old('name')}}" name="name" required
                             placeholder="Enter name">
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>Email<span style="color: red;">*</span></label>
                         <input type="email" class="form-control" value="{{old('email')}}" name="email" required
                             placeholder="Enter email">
                         <div style="color: red;">{{$errors->first('email')}}</div>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>Password<span style="color: red;">*</span></label>
                         <input type="password" class="form-control" name="password" required
                             placeholder="Enter password">
                     </div>

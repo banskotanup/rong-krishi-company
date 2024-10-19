@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Hash;
+use Mail;
+use App\Mail\RegisterMail;
 
 class AuthController extends Controller
 {
@@ -49,8 +52,19 @@ class AuthController extends Controller
     public function auth_login(Request $request){
         $remember = !empty($request->is_remember) ? true : false;
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 0, 'is_delete' => 0], $remember)){
-            $json['status'] = true;
-            $json['message'] = 'success';
+            if(!empty(Auth::user()->email_verified_at)){
+                $json['status'] = true;
+                $json['message'] = 'success';
+            }
+            else{
+                $user = User::getSingle(Auth::user()->id);
+                Mail::to($user->email)->send(new RegisterMail($user));
+                Auth::logout();
+                $json['status'] = false;
+                $html = 'Your account email is not verified. Please check your inbox and verify your account.';
+                $json['html'] = $html;
+            }
+
         }
         else{
             $json['status'] = false;
