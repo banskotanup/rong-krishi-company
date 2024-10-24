@@ -44,8 +44,9 @@
                             <div class="toolbox-sort">
                                 <label for="sortby">Sort by:</label>
                                 <div class="select-custom">
-                                    <select name="sortby" id="sortby" class="form-control">
-                                        <option value="popularity" selected="selected">Most Popular</option>
+                                    <select name="sortby" id="sortby" class="form-control ChangeSortBy">
+                                        <option value="">Select</option>
+                                        <option value="popularity">Most Popular</option>
                                         <option value="rating">Most Rated</option>
                                         <option value="date">Date</option>
                                     </select>
@@ -54,61 +55,18 @@
                         </div>
                     </div>
 
-                    <div class="products mb-3">
-                        <div class="row justify-content-center">
-                            @foreach($getProduct as $value)
-                            @php
-                            $getProductImage = $value->getImageSingle($value->id);
-                            @endphp
-                            <div class="col-6 col-md-4 col-lg-4">
-                                <div class="product product-7 text-center">
-                                    <figure class="product-media">
-                                        <a href="{{$value->slug}}">
-                                            @if(!empty($getProductImage) && !empty($getProductImage->getImage()))
-                                            <img style="height: 280px; width: 280px; object-fit: cover;"
-                                                src="{{$getProductImage->getImage()}}" alt="{{$value->title}}"
-                                                class="product-image">
-                                            @endif
-                                        </a>
+            <div id="getProductAjax">
+                @include('product._list');
+            </div>
 
-                                        <div class="product-action-vertical">
-                                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
-                                                    to wishlist</span></a>
-                                        </div>
-
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
-                                        </div>
-                                    </figure>
-
-                                    <div class="product-body">
-                                        <div class="product-cat">
-                                            <a
-                                                href="{{url($value->category_slug.'/'.$value->sub_category_slug)}}">{{$value->sub_category_name}}</a>
-                                        </div>
-                                        <h3 class="product-title"><a href="{{$value->slug}}">{{$value->title}}</a></h3>
-                                        <div class="product-price">
-                                            NPR {{number_format($value->price, 2)}}
-                                        </div>
-                                        <div class="ratings-container">
-                                            <div class="ratings">
-                                                <div class="ratings-val" style="width: 20%;"></div>
-                                            </div>
-                                            <span class="ratings-text">( 2 Reviews )</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div style="padding: 10px; float: right;">
-                        {!! $getProduct->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                    </div>
 
                 </div><!-- End .col-lg-9 -->
                 <aside class="col-lg-3 order-lg-first">
+                    <form id="FilterForm" method="post" action="">
+                    {{csrf_field()}}
+                        <input type="text" name="sub_category_id" id="get_sub_category_id">
+                        <input type="text" name="sort_by_id" id="get_sort_by_id">
+                    </form>
                     <div class="sidebar sidebar-shop">
                         <div class="widget widget-clean">
                             <label>Filters:</label>
@@ -130,8 +88,8 @@
                                         @foreach($getSubCategoryFilter as $f_category)
                                         <div class="filter-item">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="cat-{{$f_category->id}}">
+                                                <input type="checkbox" class="custom-control-input ChangeCategory"
+                                                   value="{{$f_category->id}}" id="cat-{{$f_category->id}}">
                                                 <label class="custom-control-label"
                                                     for="cat-{{$f_category->id}}">{{$f_category->name}}</label>
                                             </div>

@@ -56,4 +56,14 @@ class ProductController extends Controller
             $data['getProduct'] = $getProduct;
             return view('product.product_list', $data);
     }
+    public function getFilterProductAjax(Request $request)
+    {
+        $getProduct = Product::getProduct();
+        return response()->json([
+            "status" => true,
+            "success" => view("product._list", [
+                "getProduct" => $getProduct,
+            ])->render(),
+            ], 200);
+    }
 }

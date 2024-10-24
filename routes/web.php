@@ -78,5 +78,6 @@ route::get('/home',[HomeController::class, 'index']);
 
 //Home/ProductController Goes Here...
 route::get('/search',[ProductFront::class, 'getProductSearch']);
+route::post('get_filter_product_ajax',[ProductFront::class, 'getFilterProductAjax']);
 route::get('/{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);
 

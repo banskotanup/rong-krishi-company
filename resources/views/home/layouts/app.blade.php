@@ -135,6 +135,44 @@
     <script src="{{url('assets/js/nouislider.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap-input-spinner.js')}}"></script>
     <script src="{{url('assets/js/wNumb.js')}}"></script>
+    <script type = "text/javascript">
+        $('.ChangeSortBy').change(function() {
+            var id = $(this).val();
+        $('#get_sort_by_id').val(id);
+        FilterForm();
+    });
+
+    $('.ChangeCategory').change(function() {
+        var ids = '';
+        $('.ChangeCategory').each(function() {
+            if(this.checked)
+            {
+                var id = $(this).val();
+                ids += id+',';
+            }
+        });
+        $('#get_sub_category_id').val(ids);
+        FilterForm();
+    }); 
+
+        
+    function FilterForm()
+        {
+            $.ajax({
+                type : "POST",
+                url : "{{ url('get_filter_product_ajax') }}",
+                data : $('#FilterForm').serialize(),
+                dataType : "json",
+                success: function(data) {
+                    $('#getProductAjax').html(data.success)
+                },
+                error: function (data) {
+
+                }
+            });
+        }
+
+    </script>
 
     <script src="{{url('assets/js/main.js')}}"></script>
     @include('home.loader.custom_loader_js')

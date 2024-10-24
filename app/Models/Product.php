@@ -50,6 +50,14 @@ class Product extends Model
         if(!empty(Request::get('q'))){
             $return = $return->where('product.title', 'like', '%'.Request::get('q').'%');
         }
+
+        if(!empty(Request::get('sub_category_id')))
+        {
+            $sub_category_id = rtrim(Request::get('sub_category_id'), ',');
+            $sub_category_id_array = explode(",", $sub_category_id);
+            $return = $return->whereIn('product.sub_category_id', $sub_category_id_array);
+        }
+
         $return = $return->where('product.is_deleted', '=', 0)
         ->where('product.status', '=', 0)
         ->orderBy('product.id', 'asc')
