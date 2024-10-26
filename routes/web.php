@@ -94,6 +94,7 @@ route::get('/blog',[HomeController::class, 'blog']);
 
 
 //Home/ProductController Goes Here...
+route::get('/checkout',[CartController::class, 'checkout']);
 route::get('/search',[ProductFront::class, 'getProductSearch']);
 route::get('/cart/delete/{rowId}',[CartController::class, 'cart_delete']);
 route::get('/cart',[CartController::class, 'getCart']);

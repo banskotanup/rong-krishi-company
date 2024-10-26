@@ -45,4 +45,11 @@ class CartController extends Controller
 
         return redirect()->back();
     }
+
+    public function checkout(){
+        $data['meta_title'] = 'Checkout';
+        $data['meta_description'] = '';
+        $data['meta_keywords'] = '';
+        return view('cart.checkout', $data);
+    }
 }
