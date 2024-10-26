@@ -171,4 +171,11 @@ class ProductController extends Controller
         $json['success'] = true;
         echo json_encode($json);
     }
+
+    public function delete_product($id){
+        $product = Product::getSingle($id);
+        $product->is_deleted = 1;
+        $product->save();
+        return redirect('/product_list')->with('success',"Product deleted  successfully!!!");
+    }
 }

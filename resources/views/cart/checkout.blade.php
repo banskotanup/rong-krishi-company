@@ -26,12 +26,12 @@
                             <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>First Name *</label>
+                                    <label>First Name <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
 
                                 <div class="col-sm-6">
-                                    <label>Last Name *</label>
+                                    <label>Last Name <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->
@@ -39,51 +39,40 @@
                             <label>Company Name (Optional)</label>
                             <input type="text" class="form-control">
 
-                            <label>Country *</label>
+                            <label>Country <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" required>
 
-                            <label>Street address *</label>
+                            <label>Street address <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" placeholder="House number and Street name" required>
                             <input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..."
                                 required>
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Town / City *</label>
+                                    <label>Town / City <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
 
                                 <div class="col-sm-6">
-                                    <label>State / County *</label>
+                                    <label>State / County <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Postcode / ZIP *</label>
+                                    <label>Postcode / ZIP <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
 
                                 <div class="col-sm-6">
-                                    <label>Phone *</label>
+                                    <label>Phone <span style="color: red;">*</span></label>
                                     <input type="tel" class="form-control" required>
                                 </div><!-- End .col-sm-6 -->
                             </div><!-- End .row -->
 
-                            <label>Email address *</label>
+                            <label>Email address <span style="color: red;">*</span></label>
                             <input type="email" class="form-control" required>
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-                                <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-                            </div><!-- End .custom-checkbox -->
-
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-                                <label class="custom-control-label" for="checkout-diff-address">Ship to a different
-                                    address?</label>
-                            </div><!-- End .custom-checkbox -->
 
                             <label>Order notes (optional)</label>
                             <textarea class="form-control" cols="30" rows="4"
@@ -120,7 +109,7 @@
                                             <td colspan="2">
                                                 <div class="cart-discount">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="coupon code">
+                                                        <input type="text" class="form-control" placeholder="Discount Code">
                                                         <div class="input-group-append">
                                                             <button style="height:40px;" type="button" class="btn btn-outline-primary-2" type="submit"><i
                                                                     class="icon-long-arrow-right"></i></button>

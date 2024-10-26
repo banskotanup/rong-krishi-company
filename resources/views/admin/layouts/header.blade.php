@@ -210,6 +210,14 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{url('discount_list')}}" class="nav-link {{ Request::is('discount_list') ? 'active' : ''}}">
+                  <i class="nav-icon fab fa-product-hunt"></i>
+                  <p>
+                    Discount Code
+                  </p>
+                </a>
+              </li>
     
             </ul>
           </nav>
