@@ -174,7 +174,7 @@ class AuthController extends Controller
 
 
 
-            return redirect(url('/'))->with('success', "Password reset successful.");
+            return redirect(url('/'))->with('success', "Password changed successful.");
         }
         else{
             return redirect()->back()->with('err', "Password and confirm password does not match");

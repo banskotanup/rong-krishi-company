@@ -94,6 +94,7 @@ route::get('/blog',[HomeController::class, 'blog']);
 
 
 //Home/ProductController Goes Here...
+route::get('/checkout',[CartController::class, 'checkout']);
 route::get('/search',[ProductFront::class, 'getProductSearch']);
 
 route::post('get_filter_product_ajax',[ProductFront::class, 'getFilterProductAjax']);
