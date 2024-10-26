@@ -21,7 +21,7 @@ class AdminMiddleware
         }
         else{
             Auth::logout();
-            return redirect('/login')->with('warning',"⚠︎WARNING!!!⚠︎ You're not an Admin! So, You can't proceed further. Please login with your admin username & password or ask for admin credential to access the content.");
+            return redirect('/')->with('warning',"⚠︎WARNING!!!⚠︎ You're not an Admin! So, You can't proceed further. Please login with your admin username & password or ask for admin credential to access the content.");
         }
     }
 }

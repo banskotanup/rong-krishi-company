@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\LandingPageController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Home\ProductController as ProductFront;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -18,10 +19,18 @@ route::get('/',[LandingPageController::class, 'welcome']);
 
 //AuthRoutes Goes Here...
 route::post('/auth_login', [AuthController::class, 'auth_login']);
+route::get('/ipChange', [AuthController::class, 'ipChange']);
+route::post('/ipChange', [AuthController::class, 'auth_ipChange']);
+route::get('/forgot-password', [AuthController::class, 'forgot_password']);
+route::post('/forgot-password', [AuthController::class, 'auth_forgot_password']);
+route::get('/reset/{token}', [AuthController::class, 'reset']);
+route::post('/reset/{token}', [AuthController::class, 'authReset']);
+route::get('/changePw/{token}', [AuthController::class, 'changePw']);
+route::post('/changePw/{token}', [AuthController::class, 'authChangePw']);
 
 //AuthController Routes Goes Here...
-route::get('/login',[AuthController::class, 'login_admin']);
-route::post('/login',[AuthController::class, 'auth_login_admin']);
+// route::get('/login',[AuthController::class, 'login_admin']);
+// route::post('/login',[AuthController::class, 'auth_login_admin']);
 route::get('/log_out',[AuthController::class, 'log_out']);
 
 // AdminController Routes Goes Here...
@@ -37,6 +46,7 @@ route::get('/admin_delete/{id}',[AdminController::class, 'delete_admin'])->middl
 route::get('/member_list',[MemberController::class, 'member_list'])->middleware('is_admin');
 route::get('/member_add',[MemberController::class, 'member_add'])->middleware('is_admin');
 route::post('/member_add',[MemberController::class, 'insert_member'])->middleware('is_admin');
+route::get('/activate/{id}',[MemberController::class, 'activate_email']);
 route::get('/member_edit/{id}',[MemberController::class, 'edit_member'])->middleware('is_admin');
 route::post('/member_edit/{id}',[MemberController::class, 'update_edit_member'])->middleware('is_admin');
 route::get('/member_delete/{id}',[MemberController::class, 'delete_member'])->middleware('is_admin');
@@ -75,9 +85,25 @@ route::post('/product_image_sortable',[ProductController::class, 'product_image_
 
 //HomeController Routes Goes Here.....
 route::get('/home',[HomeController::class, 'index']);
+route::get('/shop',[HomeController::class, 'getShop']);
+route::get('/about_us',[HomeController::class, 'about_us']);
+route::get('/contact_us',[HomeController::class, 'contact_us']);
+route::get('/faq',[HomeController::class, 'faq']);
+route::get('/error_404',[HomeController::class, 'error_404']);
+route::get('/blog',[HomeController::class, 'blog']);
+
 
 //Home/ProductController Goes Here...
 route::get('/search',[ProductFront::class, 'getProductSearch']);
+
 route::post('get_filter_product_ajax',[ProductFront::class, 'getFilterProductAjax']);
+
+route::get('/cart/delete/{rowId}',[CartController::class, 'cart_delete']);
+route::get('/cart',[CartController::class, 'getCart']);
+route::post('/cart',[CartController::class, 'add_to_Cart']);
+route::post('/cart/update',[CartController::class, 'update_cart']);
+
 route::get('/{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);
 
+route::get('/wishlist',[CartController::class, 'getWishlist']);
+route::post('/wishlist',[CartController::class, 'add_to_Wishlist']);

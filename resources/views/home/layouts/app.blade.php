@@ -13,13 +13,14 @@
     @if((!empty($meta_keywords)))
     <meta name="keywords" content="{{$meta_keywords}}">
     @endif
-    <link rel="shortcut icon" href="{{url('assets/images/icons/favicon.ico')}}">
+    <link rel="icon" type="image/x-icon" href="{{url('/trslogo.png')}}">
 
     <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/owl-carousel/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/magnific-popup/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/plugins/nouislider/nouislider.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/style.css')}}">
+    @include('home.cssJs.custom_style')
     
 </head>
 
@@ -82,7 +83,7 @@
                                                 <label class="custom-control-label" for="signin-remember">Remember Me</label>
                                             </div>
 
-                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                            <a href="{{url('/forgot-password')}}" class="forgot-link">Forgot Your Password?</a>
                                         </div>
                                     </form>
                                 </div>
@@ -176,7 +177,6 @@
 
     <script src="{{url('assets/js/main.js')}}"></script>
     @include('home.loader.custom_loader_js')
-
     <script type="text/javascript">
         $('body').delegate('#SubmitFormLogin', 'submit', function(e){
             e.preventDefault();

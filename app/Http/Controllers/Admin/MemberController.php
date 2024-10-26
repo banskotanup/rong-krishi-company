@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\RegisterMail;
 
 class MemberController extends Controller
 {
@@ -33,7 +35,11 @@ class MemberController extends Controller
         $user->status = 0;
         $user->is_admin = 0;
         $user->save();
-        return redirect('/member_list')->with('success',"Member created  successfully!!!");
+
+        Mail::to($user->email)->send(new RegisterMail($user));
+        return redirect('/member_list')->with('success',"Member Created Successfully!
+        Please check your email for the verification message to complete the process.
+        If you don’t receive the email, check your spam or junk folder. ");
     }
 
     public function edit_member($id){
@@ -63,5 +69,16 @@ class MemberController extends Controller
         $user->is_delete = 1;
         $user->save();
         return redirect('/member_list')->with('success',"Member deleted  successfully!!!");
+    }
+
+    public function activate_email($id){
+        $id = base64_decode($id);
+        $user = User::getSingle($id);
+        $user->email_verified_at = date('Y-m-d H:i:s');
+        $user->save();
+
+        return redirect('/ipChange')->with('succes',"✅ Success! Your account has been verified.
+
+                    For your security, we recommend that you enter your email below & change your password immediately.");
     }
 }

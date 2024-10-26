@@ -10,6 +10,7 @@ use App\Models\SubCategory;
 
 class ProductController extends Controller
 {
+
     public function getCategory($slug, $subSlug = ''){
         $getProductSingle = Product::getSingleSlug($slug);
         $getCategory = Category::getSingleSlug($slug);
@@ -58,7 +59,7 @@ class ProductController extends Controller
     }
     public function getFilterProductAjax(Request $request)
     {
-        $getProduct = Product::getProduct();
+        $getProduct = product::getProductRecords();
         return response()->json([
             "status" => true,
             "success" => view("product._list", [

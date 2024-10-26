@@ -63,9 +63,9 @@
                 </div><!-- End .col-lg-9 -->
                 <aside class="col-lg-3 order-lg-first">
                     <form id="FilterForm" method="post" action="">
-                    {{csrf_field()}}
-                        <input type="text" name="sub_category_id" id="get_sub_category_id">
-                        <input type="text" name="sort_by_id" id="get_sort_by_id">
+                    {{ csrf_field() }}
+                        <input type="hidden" name="sub_category_id" id="get_sub_category_id">
+                        <input type="hidden" name="sort_by_id" id="get_sort_by_id">
                     </form>
                     <div class="sidebar sidebar-shop">
                         <div class="widget widget-clean">

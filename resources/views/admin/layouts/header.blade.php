@@ -140,7 +140,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/admin/index3.html" class="brand-link">
-          <span class="brand-text font-weight-light" style="margin:10px;"><strong style="font-weight: 500; color: white;">Rongkrishi Admin Panel</strong></span>
+          <span class="brand-text font-weight-light" style="margin:10px;"><img style="height: 50px; width:50px;" src="/trslogo.png" alt=""><strong style="font-weight: 500; color: white;"> Rongkrishi Admin</strong></span>
         </a>
     
         <!-- Sidebar -->
@@ -182,7 +182,7 @@
                 <a href="{{url('member_list')}}" class="nav-link {{ Request::is('member_list') ? 'active' : ''}}">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
-                    Member
+                    Members
                   </p>
                 </a>
               </li>
