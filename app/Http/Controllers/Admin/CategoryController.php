@@ -31,7 +31,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = trim($request->name);
         $category->slug = trim($request->slug);
-        $category->status = 0;
+        $category->status = trim($request->status);
         $category->meta_title = trim($request->meta_title);
         $category->meta_description = trim($request->meta_description);
         $category->meta_keywords = trim($request->meta_keywords);

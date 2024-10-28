@@ -7,35 +7,28 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Edit Member</h1>
+                    <h1 class="m-0">Edit Shipping Charge</h1>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="col-md-12">
-
         <div class="card card-primary">
-
             <form action="" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Name<span style="color: red;">*</span></label>
+                        <label>Shipping Charge Name</label>
                         <input type="text" class="form-control" value="{{old('name', $getRecords->name)}}" name="name"
-                            required placeholder="Enter name">
+                            required placeholder="Enter shipping charge name">
                     </div>
+
                     <div class="form-group">
-                        <label>Email<span style="color: red;">*</span></label>
-                        <input type="email" class="form-control" value="{{old('email', $getRecords->email)}}"
-                            name="email" required placeholder="Enter email">
-                        <div style="color: red;">{{$errors->first('email')}}</div>
+                        <label>Price <span style="color: red;">*</span></label>
+                        <input type="text" class="form-control" value="{{old('percent_amount', $getRecords->price)}}" name="price" required
+                            placeholder="Price">
                     </div>
-                    <div class="form-group">
-                        <label>Password<span style="color: red;">*</span></label>
-                        <input type="text" class="form-control" name="password" placeholder="Enter password">
-                        <p>Do you want to change password? If so, please add!!!</p>
-                    </div>
+
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
@@ -44,7 +37,6 @@
                         </select>
                     </div>
                 </div>
-
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Update</button>

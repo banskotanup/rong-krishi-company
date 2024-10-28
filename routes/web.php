@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\LandingPageController;
 use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Admin\ShippingChargeController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Home\ProductController as ProductFront;
@@ -89,6 +90,14 @@ route::post('/discount_edit/{id}',[DiscountController::class, 'update_edit_disco
 route::get('/discount_delete/{id}',[DiscountController::class, 'delete_discount'])->middleware('is_admin');
 
 
+route::get('/shipping_charge_list',[ShippingChargeController::class, 'shipping_charge_list'])->middleware('is_admin');
+route::get('/shipping_charge_add',[ShippingChargeController::class, 'shipping_charge_add'])->middleware('is_admin');
+route::post('/shipping_charge_add',[ShippingChargeController::class, 'insert_shipping_charge'])->middleware('is_admin');
+route::get('/shipping_charge_edit/{id}',[ShippingChargeController::class, 'edit_shipping_charge'])->middleware('is_admin');
+route::post('/shipping_charge_edit/{id}',[ShippingChargeController::class, 'update_edit_shipping_charge'])->middleware('is_admin');
+route::get('/shipping_charge_delete/{id}',[ShippingChargeController::class, 'delete_shipping_charge'])->middleware('is_admin');
+
+
 //ImageController Routes Goes Here.....
 route::get('/image_delete/{id}',[ProductController::class, 'image_delete'])->middleware('is_admin');
 route::post('/product_image_sortable',[ProductController::class, 'product_image_sortable'])->middleware('is_admin');
@@ -105,6 +114,7 @@ route::get('/blog',[HomeController::class, 'blog']);
 
 //Home/ProductController Goes Here...
 route::get('/checkout',[CartController::class, 'checkout']);
+route::post('/apply_discount_code',[CartController::class, 'apply_discount_code']);
 route::get('/search',[ProductFront::class, 'getProductSearch']);
 route::get('/cart/delete/{rowId}',[CartController::class, 'cart_delete']);
 route::get('/cart',[CartController::class, 'getCart']);

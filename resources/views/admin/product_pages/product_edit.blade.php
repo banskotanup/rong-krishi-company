@@ -155,8 +155,8 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status">
-                                    <option {{($product->status == 0) ? 'selected' : ''}} value="0">Active</option>
-                                    <option {{($product->status == 1) ? 'selected' : ''}} value="1">Inactive</option>
+                                    <option {{(old('status', $product->status) == 0) ? 'selected' : ''}} value="0">Active</option>
+                                    <option {{(old('status', $product->status) == 1) ? 'selected' : ''}} value="1">Inactive</option>
                                 </select>
                             </div>
                         </div>

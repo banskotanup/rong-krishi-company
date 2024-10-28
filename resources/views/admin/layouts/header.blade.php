@@ -212,9 +212,17 @@
               </li>
               <li class="nav-item">
                 <a href="{{url('discount_list')}}" class="nav-link {{ Request::is('discount_list') ? 'active' : ''}}">
-                  <i class="nav-icon fab fa-product-hunt"></i>
+                  <i class="nav-icon fas fa-list-alt"></i>
                   <p>
                     Discount Code
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('shipping_charge_list')}}" class="nav-link {{ Request::is('shipping_charge_list') ? 'active' : ''}}">
+                  <i class="nav-icon fas fa-list-alt"></i>
+                  <p>
+                    Shipping Charge
                   </p>
                 </a>
               </li>

@@ -16,7 +16,16 @@ class DiscountCode extends Model
     static public function getRecord(){
         return self::select('discount_code.*')
         ->where('discount_code.is_delete', '=', 0)
-        ->orderBy('discount_code.id', 'desc')
+        ->orderBy('discount_code.id', 'asc')
         ->paginate(20);
+    }
+
+    static public function CheckDiscount($discount_code){
+        return self::select('discount_code.*')
+        ->where('discount_code.is_delete', '=', 0)
+        ->where('discount_code.status', '=', 0)
+        ->where('discount_code.name', '=', $discount_code)
+        ->where('discount_code.expire_date', '>=', date('Y-m-d'))
+        ->first();
     }
 }
