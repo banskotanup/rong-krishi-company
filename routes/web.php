@@ -116,10 +116,14 @@ route::get('/blog',[HomeController::class, 'blog']);
 route::get('/checkout',[CartController::class, 'checkout']);
 route::post('/apply_discount_code',[CartController::class, 'apply_discount_code']);
 route::get('/search',[ProductFront::class, 'getProductSearch']);
+
+route::post('get_filter_product_ajax',[ProductFront::class, 'getFilterProductAjax']);
+
 route::get('/cart/delete/{rowId}',[CartController::class, 'cart_delete']);
 route::get('/cart',[CartController::class, 'getCart']);
 route::post('/cart',[CartController::class, 'add_to_Cart']);
 route::post('/cart/update',[CartController::class, 'update_cart']);
+
 route::get('/{category?}/{subcategory?}',[ProductFront::class, 'getCategory']);
 
 route::get('/wishlist',[CartController::class, 'getWishlist']);

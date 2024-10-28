@@ -43,6 +43,7 @@ class Product extends Model
         if(!empty($category_id)){
             $return = $return->where('product.category_id', '=', $category_id);
         }
+        
         if(!empty($sub_category_id)){
             $return = $return->where('product.sub_category_id', '=', $sub_category_id);
         }
@@ -50,6 +51,36 @@ class Product extends Model
         if(!empty(Request::get('q'))){
             $return = $return->where('product.title', 'like', '%'.Request::get('q').'%');
         }
+
+
+        if(!empty(Request::get('sub_category_id')))
+        {
+            $sub_category_id = rtrim(Request::get('sub_category_id'), ',');
+            $sub_category_id_array = explode(",", $sub_category_id);
+            $return = $return->whereIn('product.sub_category_id', $sub_category_id_array);
+        }
+        else
+        {
+            if(!empty(Request::get('old_category_id')))
+            {
+                $return = $return->where('product.category_id', '=', Request::get('old_category_id'));
+            }
+            
+            if(!empty(Request::get('old_sub_category_id')))
+            {
+                $return = $return->where('product.sub_category_id', '=', Request::get('old_sub_category_id'));
+            }
+        }
+
+        if(!empty(Request::get('start_price')) && !empty(Request::get('end_price')))
+        {
+            $start_price = str_replace('NPR', '', Request::get('start_price'));
+            $end_price = str_replace('NPR', '', Request::get('end_price'));
+
+            $return = $return->where('product.price', '>=', $start_price);
+            $return = $return->where('product.price', '<=', $end_price);
+        }
+
         $return = $return->where('product.is_deleted', '=', 0)
         ->where('product.status', '=', 0)
         ->orderBy('product.id', 'asc')
