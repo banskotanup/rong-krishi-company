@@ -136,6 +136,8 @@
     <script src="{{url('assets/js/nouislider.min.js')}}"></script>
     <script src="{{url('assets/js/bootstrap-input-spinner.js')}}"></script>
     <script src="{{url('assets/js/wNumb.js')}}"></script>
+    <script src="{{url('assets/js/main.js')}}"></script>
+
     <script type = "text/javascript">
         $('.ChangeSortBy').change(function() {
             var id = $(this).val();
@@ -156,10 +158,14 @@
         FilterForm();
     }); 
 
-        
+     var xhr;   
     function FilterForm()
         {
-            $.ajax({
+            if(xhr && xhr.readyState !=4)
+            {
+                xhr.abort();
+            }
+            xhr = $.ajax({
                 type : "POST",
                 url : "{{ url('get_filter_product_ajax') }}",
                 data : $('#FilterForm').serialize(),
@@ -172,6 +178,45 @@
                 }
             });
         }
+
+        var i = 0;
+
+        if ( typeof noUiSlider === 'object' ) {
+		var priceSlider  = document.getElementById('price-slider');
+
+		noUiSlider.create(priceSlider, {
+			start: [ 0, 10000 ],
+			connect: true,
+			step: 1,
+			margin: 1,
+			range: {
+				'min': 0,
+				'max': 10000
+			},
+			tooltips: true,
+			format: wNumb({
+		        decimals: 0,
+		        prefix: 'NPR '
+		    })
+		});
+
+		// Update Price Range
+		priceSlider.noUiSlider.on('update', function( values, handle ){
+            var start_price = values[0];
+            var end_price = values[1];
+            $('#get_start_price').val(start_price);
+            $('#get_end_price').val(end_price);
+			$('#filter-price-range').text(values.join(' - '));
+            if(i == 0 || i == 1)
+                {
+                    i++;
+                }
+            else
+                {
+                    FilterForm();
+                }
+		});
+	}
 
     </script>
 
@@ -197,10 +242,8 @@
 
                 }
             });
-        });
-
+        }
     </script>
-
 
 </body>
 </html>

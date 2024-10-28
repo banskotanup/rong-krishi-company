@@ -64,8 +64,15 @@
                 <aside class="col-lg-3 order-lg-first">
                     <form id="FilterForm" method="post" action="">
                     {{ csrf_field() }}
+                        <input type="hidden" name="old_sub_category_id" value="{{!empty($getSubCategory) ? $getSubCategory->id
+                        : ''}}">
+                        <input type="hidden" name="old_category_id" value="{{!empty($getCategory) ? $getCategory->id
+                        : ''}}">
                         <input type="hidden" name="sub_category_id" id="get_sub_category_id">
                         <input type="hidden" name="sort_by_id" id="get_sort_by_id">
+                        <input type="hidden" name="start_price" id="get_start_price">
+                        <input type="hidden" name="end_price" id="get_end_price">
+
                     </form>
                     <div class="sidebar sidebar-shop">
                         <div class="widget widget-clean">
@@ -128,5 +135,6 @@
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 </main><!-- End .main -->
+
 
 @endsection

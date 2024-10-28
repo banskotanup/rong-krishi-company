@@ -59,7 +59,7 @@ class ProductController extends Controller
     }
     public function getFilterProductAjax(Request $request)
     {
-        $getProduct = product::getProductRecords();
+        $getProduct = Product::getProductRecords();
         return response()->json([
             "status" => true,
             "success" => view("product._list", [
