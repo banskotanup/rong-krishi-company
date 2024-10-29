@@ -84,7 +84,7 @@ class Product extends Model
         $return = $return->where('product.is_deleted', '=', 0)
         ->where('product.status', '=', 0)
         ->orderBy('product.id', 'asc')
-        ->paginate(20);
+        ->paginate(3);
 
         return $return;
 

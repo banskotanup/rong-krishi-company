@@ -172,12 +172,53 @@
                 dataType : "json",
                 success: function(data) {
                     $('#getProductAjax').html(data.success)
+                    $('.LoadMore').attr('data-page', data.page);
+                        if(data.page == 0)
+                        {
+                            $('.LoadMore').hide();
+                        }
+                        else
+                        {
+                            $('.LoadMore').show();
+                        }
                 },
                 error: function (data) {
 
                 }
             });
         }
+
+        $('body').delegate('.LoadMore', 'click', function()
+        {
+            var page = $(this).attr('data-page');
+            $('.LoadMore').html('Loading, please wait for a sec......');
+            if(xhr && xhr.readyState !=4)
+            {
+                xhr.abort();
+            }
+            xhr = $.ajax({
+                type : "POST",
+                url : "{{ url('get_filter_product_ajax') }}?page="+page,
+                data : $('#FilterForm').serialize(),
+                dataType : "json",
+                success: function(data) {
+                    $('#getProductAjax').append(data.success)
+                    $('.LoadMore').attr('data-page', data.page);
+                    $('.LoadMore').html('Load More');
+                        if(data.page == 0)
+                        {
+                            $('.LoadMore').hide();
+                        }
+                        else
+                        {
+                            $('.LoadMore').show();
+                        }
+                },
+                error: function (data) {
+
+                }
+            });
+        });
 
         var i = 0;
 

@@ -36,7 +36,7 @@
                     <div class="toolbox">
                         <div class="toolbox-left">
                             <div class="toolbox-info">
-                                Showing <span>9 of 56</span> Products
+                                Showing <span> {{ $getProduct->perPage() }} of {{ $getProduct->total() }}</span> Products
                             </div>
                         </div>
 
@@ -56,9 +56,13 @@
                     </div>
 
             <div id="getProductAjax">
-                @include('product._list');
+                @include('product._list')
             </div>
 
+    <div style="text-align: center;">
+        <a href="javascript:;" @if(empty($page)) style="display: none;" @endif
+        data-page="{{ $page }}" class="btn btn-primary LoadMore">Load More</a>
+    </div>
 
                 </div><!-- End .col-lg-9 -->
                 <aside class="col-lg-3 order-lg-first">
