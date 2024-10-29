@@ -172,7 +172,7 @@ $(document).ready(function () {
 
 	// 	// Check if #price-slider elem is exists if not return
 	// 	// to prevent error logs
-	// 	if (priceSlider == null) return;
+		// if (priceSlider == null) return;
 
 	// 	noUiSlider.create(priceSlider, {
 	// 		start: [ 0, 10000 ],
@@ -233,17 +233,8 @@ $(document).ready(function () {
 	}
 
 	// Quantity Input - Cart page - Product Details pages
-    function quantityInputs() {
-        if ( $.fn.inputSpinner ) {
-            $("input[type='number']").inputSpinner({
-                decrementButton: '<i class="icon-minus"></i>',
-                incrementButton: '<i class="icon-plus"></i>',
-                groupClass: 'input-spinner',
-                buttonsClass: 'btn-spinner',
-                buttonsWidth: '26px'
-            });
-        }
-    }
+
+
 
     // Sticky Content - Sidebar - Social Icons etc..
     // Wrap elements with <div class="sticky-content"></div> if you want to make it sticky

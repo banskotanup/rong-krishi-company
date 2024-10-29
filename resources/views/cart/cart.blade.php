@@ -89,18 +89,6 @@
 
                             <div class="cart-bottom">
                                 
-                                <div class="cart-discount">
-                                    <form action="">
-                                        {{csrf_field()}}
-                                        <div class="input-group">
-                                            <input type="text" id="getDiscountCode" class="form-control" required placeholder="coupon code">
-                                            <div class="input-group-append">
-                                                <button id="ApplyDiscount" class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
-                                            </div><!-- .End .input-group-append -->
-                                        </div><!-- End .input-group -->
-                                    </form>
-                                </div><!-- End .cart-discount -->
-                                
                                 <button type="submit" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i
                                         class="icon-refresh"></i></button>
                             </div>
@@ -150,33 +138,4 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 
-@endsection
-
-@section('script')
-<script type="text/javascript">
-    $('body').delegate('#ApplyDiscount', 'click', function(){
-        var discount_code = $('#getDiscountCode').val();
-
-        $.ajax({
-            type : "POST",
-            url : "{{ url('/apply_discount_code') }}",
-            data : {
-                discount_code : discount_code,
-                "_token": "@csrf",
-            },
-            dataType : "json",
-            success: function(data){
-                $('#getDiscountAmount').html(data.discountAmount)
-                $('#getPayableTotal').html(data.payableTotal)
-                if(data.status == false){
-                    $('#messagedivmodal').html(data.html);
-                }
-            },
-            error: function(data){
-
-            }
-        });
-    });
-
-</script>
 @endsection
