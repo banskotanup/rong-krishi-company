@@ -234,8 +234,6 @@ $(document).ready(function () {
 
 	// Quantity Input - Cart page - Product Details pages
 
-
-
     // Sticky Content - Sidebar - Social Icons etc..
     // Wrap elements with <div class="sticky-content"></div> if you want to make it sticky
     if ( $.fn.stick_in_parent && $(window).width() >= 992 ) {
