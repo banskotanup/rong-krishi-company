@@ -33,7 +33,7 @@ class SubCategoryController extends Controller
         $sub_category->category_id = trim($request->category_id);
         $sub_category->name = trim($request->name);
         $sub_category->slug = trim($request->slug);
-        $sub_category->status = 0;
+        $sub_category->status = trim($request->status);
         $sub_category->meta_title = trim($request->meta_title);
         $sub_category->meta_description = trim($request->meta_description);
         $sub_category->meta_keywords = trim($request->meta_keywords);

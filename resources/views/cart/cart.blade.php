@@ -89,8 +89,6 @@
 
                             <div class="cart-bottom">
                                 
-
-                                
                                 <button type="submit" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i
                                         class="icon-refresh"></i></button>
                             </div>
@@ -140,15 +138,4 @@
     </div><!-- End .page-content -->
 </main><!-- End .main -->
 
-@endsection
-
-@section('script')
-<script type="text/javascript">
-    // function updateQuantity(qty){
-    //     $('#rowId').val($(qty).data('rowId'));
-    //     $('#qty').val($(qty).val());
-    //     $('#updateCartQty').submit();
-    // }
-
-</script>
 @endsection

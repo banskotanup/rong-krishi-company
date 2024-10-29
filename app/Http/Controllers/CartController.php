@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\DiscountCode;
 use Cart;
 
 class CartController extends Controller
@@ -51,5 +52,34 @@ class CartController extends Controller
         $data['meta_description'] = '';
         $data['meta_keywords'] = '';
         return view('cart.checkout', $data);
+    }
+
+    public function apply_discount_code(Request $request){
+        $getDiscount = DiscountCode::CheckDiscount($request->discount_code);
+        if(!empty($getDiscount)){
+            $total = Cart::subTotal();
+            if($getDiscount->type == 'Amount'){
+                $discountAmount  = $getDiscount->percent_amount;
+                $payableTotal = $total - $getDiscount->percent_amount;
+            }
+            else{
+                $discountAmount  = ($total * $getDiscount->percent_amount) / 100 ;
+                $payableTotal = $total - $discountAmount;
+
+            }
+            $json['status'] = true;
+            $json['discountAmount'] = number_format($discountAmount, 2);
+            $json['payableTotal'] = number_format($payableTotal, 2);
+            $json['message'] = 'success';
+        }
+        else{
+            $json['status'] = false;
+            $json['discountAmount'] = '0.00';
+            $json['payableTotal'] = number_format(Cart::getSubTotal(), 2);
+            $html = 'Invalid discount code';
+            $json['html'] = $html;
+        }
+
+        echo json_encode($json);
     }
 }

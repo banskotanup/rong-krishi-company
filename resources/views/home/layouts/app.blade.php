@@ -224,6 +224,7 @@
 
         if ( typeof noUiSlider === 'object' ) {
 		var priceSlider  = document.getElementById('price-slider');
+        // if (priceSlider == null) return;
 
 		noUiSlider.create(priceSlider, {
 			start: [ 0, 10000 ],
@@ -283,7 +284,7 @@
 
                 }
             });
-        }
+        });
     </script>
 
 </body>

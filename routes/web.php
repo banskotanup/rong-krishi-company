@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\LandingPageController;
+use App\Http\Controllers\Admin\DiscountController;
+use App\Http\Controllers\Admin\ShippingChargeController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Home\ProductController as ProductFront;
@@ -77,6 +79,23 @@ route::get('/product_add/{id}',[ProductController::class, 'add_product'])->middl
 route::post('/product_add/{id}',[ProductController::class, 'update_add_product'])->middleware('is_admin');
 route::get('/product_edit/{id}',[ProductController::class, 'edit_product'])->middleware('is_admin');
 route::post('/product_edit/{id}',[ProductController::class, 'update_edit_product'])->middleware('is_admin');
+route::get('/product_delete/{id}',[ProductController::class, 'delete_product'])->middleware('is_admin');
+
+//Discount Model Controller Goes here
+route::get('/discount_list',[DiscountController::class, 'discount_list'])->middleware('is_admin');
+route::get('/discount_add',[DiscountController::class, 'discount_add'])->middleware('is_admin');
+route::post('/discount_add',[DiscountController::class, 'insert_discount'])->middleware('is_admin');
+route::get('/discount_edit/{id}',[DiscountController::class, 'edit_discount'])->middleware('is_admin');
+route::post('/discount_edit/{id}',[DiscountController::class, 'update_edit_discount'])->middleware('is_admin');
+route::get('/discount_delete/{id}',[DiscountController::class, 'delete_discount'])->middleware('is_admin');
+
+
+route::get('/shipping_charge_list',[ShippingChargeController::class, 'shipping_charge_list'])->middleware('is_admin');
+route::get('/shipping_charge_add',[ShippingChargeController::class, 'shipping_charge_add'])->middleware('is_admin');
+route::post('/shipping_charge_add',[ShippingChargeController::class, 'insert_shipping_charge'])->middleware('is_admin');
+route::get('/shipping_charge_edit/{id}',[ShippingChargeController::class, 'edit_shipping_charge'])->middleware('is_admin');
+route::post('/shipping_charge_edit/{id}',[ShippingChargeController::class, 'update_edit_shipping_charge'])->middleware('is_admin');
+route::get('/shipping_charge_delete/{id}',[ShippingChargeController::class, 'delete_shipping_charge'])->middleware('is_admin');
 
 
 //ImageController Routes Goes Here.....
@@ -95,6 +114,7 @@ route::get('/blog',[HomeController::class, 'blog']);
 
 //Home/ProductController Goes Here...
 route::get('/checkout',[CartController::class, 'checkout']);
+route::post('/apply_discount_code',[CartController::class, 'apply_discount_code']);
 route::get('/search',[ProductFront::class, 'getProductSearch']);
 
 route::post('get_filter_product_ajax',[ProductFront::class, 'getFilterProductAjax']);
