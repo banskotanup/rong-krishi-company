@@ -172,7 +172,7 @@ $(document).ready(function () {
 
 	// 	// Check if #price-slider elem is exists if not return
 	// 	// to prevent error logs
-		// if (priceSlider == null) return;
+	// 	if (priceSlider == null) return;
 
 	// 	noUiSlider.create(priceSlider, {
 	// 		start: [ 0, 10000 ],
@@ -190,7 +190,7 @@ $(document).ready(function () {
 	// 	    })
 	// 	});
 	// }
-
+   
 	// Product countdown
 	if ( $.fn.countdown ) {
 		$('.product-countdown').each(function () {
