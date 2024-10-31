@@ -157,6 +157,7 @@
                 },
                 error: function(data){
 
+<<<<<<< HEAD
                 }
             });
         });
@@ -255,6 +256,27 @@
                 range: {
                     'min': 0,
                     'max': 10000
+=======
+   
+
+    <script src="{{url('assets/js/main.js')}}"></script>
+    @include('home.loader.custom_loader_js')
+    <script type="text/javascript">
+        $('body').delegate('#SubmitFormLogin', 'submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type : "POST",
+                url : "{{url('/auth_login')}}",
+                data : $(this).serialize(),
+                dataType : "json",
+                success: function(data){
+                    if(data.status == true){
+                        location.reload();
+                    }
+                    else{
+                        $('#messagedivinpopupmodal').html(data.html);
+                    }
+>>>>>>> upstream/main
                 },
                 tooltips: true,
                 format: wNumb({

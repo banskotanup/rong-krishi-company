@@ -123,17 +123,37 @@
                                             <td>Discount:</td>
                                             <td>NPR <span id="getDiscountAmount">0.00</span></td>
                                         </tr><!-- End .summary-subtotal -->
-                                        <tr>
-                                            <td>Shipping:</td>
-                                            <td>Free shipping</td>
-                                        </tr>
+
+                                            <tr class="summary-shipping">
+	                							<td>Shipping:</td>
+	                							<td>&nbsp;</td>
+	                						</tr>
+                                            @foreach($getShipping as $shipping)
+                                            <tr class="summary-shipping-row">
+	                							<td>
+													<div class="custom-control custom-radio">
+                                                    <input type="radio" id="free-shipping{{ $shipping->id }}" name="shipping" 
+                                                    data-price="{{ !empty($shipping->price) ? $shipping->price : 0 }}"
+                                                    class="custom-control-input getShippingCharge">
+                                                    <label class="custom-control-label" for="free-shipping{{ $shipping->id }}">{{ $shipping->name }}</label>
+													</div>
+	                							</td>
+	                							<td>
+                                                    @if(!empty($shipping->price))
+                                                    NPR {{ number_format($shipping->price,2) }}
+                                                    @endif
+                                                </td>
+	                						</tr><!-- End .summary-shipping-row -->
+                                           @endforeach
+
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>NPR <span id="getPayableTotal">{{Cart::subTotal()}}</span></td>
+                                            <td>NPR <span id="getPayableTotal">{{ Cart::subTotal() }}</span></td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
-
+                                <input type="hidden" id="getShippingChargeTotal" value="0">
+                                <input type="hidden" id="PayableTotal" value="{{ Cart::subTotal() }}">
                                 <div class="accordion-summary" id="accordion-payment">
 
                                     <div class="card">
@@ -211,6 +231,7 @@
 
 @section('script')
 <script type="text/javascript">
+<<<<<<< HEAD
     //     $('body').delegate('#ApplyDiscount', 'click', function(){
     //     var discount_code = $('#getDiscountCode').val();
 
@@ -230,6 +251,41 @@
     //             }
     //         },
     //         error: function(data){
+=======
+
+
+$('body').delegate('.getShippingCharge', 'change', function(){
+    var price = $(this).attr('data-price');
+    var total = $('#PayableTotal'). val();
+    $('#getShippingChargeTotal').val(price);
+    var final_total = parseFloat(price) + parseFloat(total);
+    $('#getPayableTotal').html(final_total.toFixed(2));
+
+});
+        $('body').delegate('#ApplyDiscount', 'click', function() {
+        var discount_code = $('#getDiscountCode').val();
+        
+        $.ajax({
+            type : "POST",
+            url : "{{ url('/apply_discount_code') }}",
+            data : {
+                discount_code : discount_code,
+                "_token": "{{ csrf_token() }}",
+            },
+            dataType : "json",
+            success: function(data){
+                $('#getDiscountAmount').html(data.discountAmount);
+                var shipping = $('#getShippingChargeTotal').val();
+                var final_total = parseFloat(shipping) + parseFloat(data.payableTotal);
+                $('#getPayableTotal').html(final_total.toFixed(2));
+                $('#PayableTotal').val(data.payableTotal);
+
+                if(data.status == false){
+                    alert(data.message);
+                }
+            },
+            error: function(data){
+>>>>>>> upstream/main
 
     //         }
     //     });

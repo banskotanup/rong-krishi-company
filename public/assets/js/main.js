@@ -167,6 +167,10 @@ $(document).ready(function () {
 	// 	// Check if #price-slider elem is exists if not return
 	// 	// to prevent error logs
 	// 	if (priceSlider == null) return;
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/main
 	// 	noUiSlider.create(priceSlider, {
 	// 		start: [ 0, 10000 ],
 	// 		connect: true,
@@ -182,6 +186,7 @@ $(document).ready(function () {
 	// 	        prefix: 'NPR '
 	// 	    })
 	// 	});
+<<<<<<< HEAD
 	// 	// Update Price Range
 	// 	priceSlider.noUiSlider.on('update', function( values, handle ){
 	// 		$('#filter-price-range').text(values.join(' - '));
@@ -189,6 +194,10 @@ $(document).ready(function () {
     // }
     
 
+=======
+	// }
+   
+>>>>>>> upstream/main
 	// Product countdown
 	if ( $.fn.countdown ) {
 		$('.product-countdown').each(function () {
