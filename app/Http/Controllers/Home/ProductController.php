@@ -81,11 +81,12 @@ class ProductController extends Controller
             $data['getProduct'] = $getProduct;
             return view('product.product_list', $data);
     }
+
     public function getFilterProductAjax(Request $request)
     {
         $getProduct = Product::getProductRecords();
         $page = 0;
-            if(!empty($getProduct->nextPageUrl()))
+        if(!empty($getProduct->nextPageUrl()))
             {
                 $parse_url = parse_url($getProduct->nextPageUrl());
                 if(!empty($parse_url['query']))

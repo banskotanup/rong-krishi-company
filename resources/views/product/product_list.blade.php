@@ -142,3 +142,7 @@
 
 
 @endsection
+
+@section('script')
+
+@endsection

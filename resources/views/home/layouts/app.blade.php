@@ -137,30 +137,51 @@
     <script src="{{url('assets/js/bootstrap-input-spinner.js')}}"></script>
     <script src="{{url('assets/js/wNumb.js')}}"></script>
     <script src="{{url('assets/js/main.js')}}"></script>
+    <script src="{{url('assets/js/main.js')}}"></script>
+    @include('home.loader.custom_loader_js')
+    <script type="text/javascript">
+        $('body').delegate('#SubmitFormLogin', 'submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type : "POST",
+                url : "{{url('/auth_login')}}",
+                data : $(this).serialize(),
+                dataType : "json",
+                success: function(data){
+                    if(data.status == true){
+                        location.reload();
+                    }
+                    else{
+                        $('#messagedivinpopupmodal').html(data.html);
+                    }
+                },
+                error: function(data){
 
-    <script type = "text/javascript">
-        $('.ChangeSortBy').change(function() {
-            var id = $(this).val();
-        $('#get_sort_by_id').val(id);
-        FilterForm();
-    });
-
-    $('.ChangeCategory').change(function() {
-        var ids = '';
-        $('.ChangeCategory').each(function() {
-            if(this.checked)
-            {
-                var id = $(this).val();
-                ids += id+',';
-            }
+                }
+            });
         });
-        $('#get_sub_category_id').val(ids);
-        FilterForm();
-    }); 
 
-     var xhr;   
-    function FilterForm()
-        {
+            $('.ChangeSortBy').change(function() {
+            var id = $(this).val();
+            $('#get_sort_by_id').val(id);
+            FilterForm();
+        });
+
+        $('.ChangeCategory').change(function() {
+            var ids = '';
+            $('.ChangeCategory').each(function() {
+                if(this.checked)
+                {
+                    var id = $(this).val();
+                    ids += id+',';
+                }
+            });
+            $('#get_sub_category_id').val(ids);
+            FilterForm();
+        }); 
+
+        var xhr;   
+        function FilterForm(){
             if(xhr && xhr.readyState !=4)
             {
                 xhr.abort();
@@ -188,8 +209,7 @@
             });
         }
 
-        $('body').delegate('.LoadMore', 'click', function()
-        {
+        $('body').delegate('.LoadMore', 'click', function(){
             var page = $(this).attr('data-page');
             $('.LoadMore').html('Loading, please wait for a sec......');
             if(xhr && xhr.readyState !=4)
@@ -222,69 +242,45 @@
 
         var i = 0;
 
+
         if ( typeof noUiSlider === 'object' ) {
-		var priceSlider  = document.getElementById('price-slider');
-        // if (priceSlider == null) return;
+            var priceSlider  = document.getElementById('price-slider');
 
-		noUiSlider.create(priceSlider, {
-			start: [ 0, 10000 ],
-			connect: true,
-			step: 1,
-			margin: 1,
-			range: {
-				'min': 0,
-				'max': 10000
-			},
-			tooltips: true,
-			format: wNumb({
-		        decimals: 0,
-		        prefix: 'NPR '
-		    })
-		});
 
-		// Update Price Range
-		priceSlider.noUiSlider.on('update', function( values, handle ){
-            var start_price = values[0];
-            var end_price = values[1];
-            $('#get_start_price').val(start_price);
-            $('#get_end_price').val(end_price);
-			$('#filter-price-range').text(values.join(' - '));
-            if(i == 0 || i == 1)
-                {
-                    i++;
-                }
-            else
-                {
-                    FilterForm();
-                }
-		});
-	}
-
-    </script>
-
-    <script src="{{url('assets/js/main.js')}}"></script>
-    @include('home.loader.custom_loader_js')
-    <script type="text/javascript">
-        $('body').delegate('#SubmitFormLogin', 'submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                type : "POST",
-                url : "{{url('/auth_login')}}",
-                data : $(this).serialize(),
-                dataType : "json",
-                success: function(data){
-                    if(data.status == true){
-                        location.reload();
-                    }
-                    else{
-                        $('#messagedivinpopupmodal').html(data.html);
-                    }
+            noUiSlider.create(priceSlider, {
+                start: [ 0, 10000 ],
+                connect: true,
+                step: 1,
+                margin: 1,
+                range: {
+                    'min': 0,
+                    'max': 10000
                 },
-                error: function(data){
-
-                }
+                tooltips: true,
+                format: wNumb({
+                    decimals: 0,
+                    prefix: 'NPR '
+                })
             });
-        });
+
+            // Update Price Range
+            priceSlider.noUiSlider.on('update', function( values, handle ){
+                var start_price = values[0];
+                var end_price = values[1];
+                $('#get_start_price').val(start_price);
+                $('#get_end_price').val(end_price);
+                $('#filter-price-range').text(values.join(' - '));
+                if(i == 0 || i == 1)
+                    {
+                        i++;
+                    }
+                else
+                    {
+                        FilterForm();
+                    }
+            });
+	    }
+
     </script>
 
 </body>

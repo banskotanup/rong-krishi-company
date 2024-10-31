@@ -211,28 +211,28 @@
 
 @section('script')
 <script type="text/javascript">
-        $('body').delegate('#ApplyDiscount', 'click', function(){
-        var discount_code = $('#getDiscountCode').val();
+    //     $('body').delegate('#ApplyDiscount', 'click', function(){
+    //     var discount_code = $('#getDiscountCode').val();
 
-        $.ajax({
-            type : "POST",
-            url : "{{ url('/apply_discount_code') }}",
-            data : {
-                discount_code : discount_code,
-                "_token": "@csrf",
-            },
-            dataType : "json",
-            success: function(data){
-                $('#getDiscountAmount').html(data.discountAmount)
-                $('#getPayableTotal').html(data.payableTotal)
-                if(data.status == false){
-                    $('#messagedivmodal').html(data.html);
-                }
-            },
-            error: function(data){
+    //     $.ajax({
+    //         type : "POST",
+    //         url : "{{ url('/apply_discount_code') }}",
+    //         data : {
+    //             discount_code : discount_code,
+    //             "_token": "@csrf",
+    //         },
+    //         dataType : "json",
+    //         success: function(data){
+    //             $('#getDiscountAmount').html(data.discountAmount)
+    //             $('#getPayableTotal').html(data.payableTotal)
+    //             if(data.status == false){
+    //                 $('#messagedivmodal').html(data.html);
+    //             }
+    //         },
+    //         error: function(data){
 
-            }
-        });
-    });
+    //         }
+    //     });
+    // });
 </script>
 @endsection
