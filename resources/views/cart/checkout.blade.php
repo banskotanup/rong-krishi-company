@@ -132,10 +132,10 @@
                                             <tr class="summary-shipping-row">
 	                							<td>
 													<div class="custom-control custom-radio">
-                                                    <input type="radio" id="free-shipping{{$shipping->id}}" name="shipping" 
+                                                    <input type="radio" id="free-shipping{{ $shipping->id }}" name="shipping" 
                                                     data-price="{{ !empty($shipping->price) ? $shipping->price : 0 }}"
                                                     class="custom-control-input getShippingCharge">
-                                                    <label class="custom-control-label" for="free-shipping"> {{ $shipping->name }} </label>
+                                                    <label class="custom-control-label" for="free-shipping{{ $shipping->id }}">{{ $shipping->name }}</label>
 													</div>
 	                							</td>
 	                							<td>
@@ -148,12 +148,12 @@
 
                                         <tr class="summary-total">
                                             <td>Total:</td>
-                                            <td>NPR <span id="getPayableTotal">{{Cart::subTotal()}}</span></td>
+                                            <td>NPR <span id="getPayableTotal">{{ Cart::subTotal() }}</span></td>
                                         </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
                                 <input type="hidden" id="getShippingChargeTotal" value="0">
-                                <input type="hidden" id="PayableTotal" value="{{Cart::subTotal()}}">
+                                <input type="hidden" id="PayableTotal" value="{{ Cart::subTotal() }}">
                                 <div class="accordion-summary" id="accordion-payment">
 
                                     <div class="card">
@@ -235,13 +235,13 @@
 
 $('body').delegate('.getShippingCharge', 'change', function(){
     var price = $(this).attr('data-price');
-    var total = $('#PayableTotal').val();
-    console.log(price);
-    // $('#getShippingChargeTotal').val(price);
-    // var final_total = parseFloat(price) + parseFloat(total);
-    // $('#getPayableTotal').html(final_total.toFixed(2));
+    var total = $('#PayableTotal'). val();
+    $('#getShippingChargeTotal').val(price);
+    var final_total = parseFloat(price) + parseFloat(total);
+    $('#getPayableTotal').html(final_total.toFixed(2));
+
 });
-        $('body').delegate('#ApplyDiscount', 'click', function(){
+        $('body').delegate('#ApplyDiscount', 'click', function() {
         var discount_code = $('#getDiscountCode').val();
         
         $.ajax({
@@ -249,20 +249,18 @@ $('body').delegate('.getShippingCharge', 'change', function(){
             url : "{{ url('/apply_discount_code') }}",
             data : {
                 discount_code : discount_code,
-                "_token": "@csrf",
+                "_token": "{{ csrf_token() }}",
             },
             dataType : "json",
             success: function(data){
                 $('#getDiscountAmount').html(data.discountAmount);
                 var shipping = $('#getShippingChargeTotal').val();
-
                 var final_total = parseFloat(shipping) + parseFloat(data.payableTotal);
-
                 $('#getPayableTotal').html(final_total.toFixed(2));
                 $('#PayableTotal').val(data.payableTotal);
 
                 if(data.status == false){
-                    $('#messagedivmodal').html(data.html);
+                    alert(data.message);
                 }
             },
             error: function(data){

@@ -139,6 +139,8 @@
         </div><!-- End .container -->
     </div><!-- End .page-content -->
 
+    <script src="{{url('assets/js/main.js')}}"></script>
+    @include('home.loader.custom_loader_js')
     <script type = "text/javascript">
         $('.ChangeSortBy').change(function() {
             var id = $(this).val();
